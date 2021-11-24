@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="inputType">
+        <flag name="none" value="0x00000000"/>
+        <flag name="text" value="0x00000001"/>
+        <flag name="textCapCharacters" value="0x00001001"/>
+        <flag name="textCapWords" value="0x00002001"/>
+        <flag name="textCapSentences" value="0x00004001"/>
+        <flag name="textAutoCorrect" value="0x00008001"/>
+        <flag name="textAutoComplete" value="0x00010001"/>
+        <flag name="textMultiLine" value="0x00020001"/>
+        <flag name="textImeMultiLine" value="0x00040001"/>
+        <flag name="textNoSuggestions" value="0x00080001"/>
+        <flag name="textUri" value="0x00000011"/>
+        <flag name="textEmailAddress" value="0x00000021"/>
+        <flag name="textEmailSubject" value="0x00000031"/>
+        <flag name="textShortMessage" value="0x00000041"/>
+        <flag name="textLongMessage" value="0x00000051"/>
+        <flag name="textPersonName" value="0x00000061"/>
+        <flag name="textPostalAddress" value="0x00000071"/>
+        <flag name="textPassword" value="0x00000081"/>
+        <flag name="textVisiblePassword" value="0x00000091"/>
+        <flag name="textWebEditText" value="0x000000a1"/>
+        <flag name="textFilter" value="0x000000b1"/>
+        <flag name="textPhonetic" value="0x000000c1"/>
+        <flag name="textWebEmailAddress" value="0x000000d1"/>
+        <flag name="textWebPassword" value="0x000000e1"/>
+        <flag name="number" value="0x00000002"/>
+        <flag name="numberSigned" value="0x00001002"/>
+        <flag name="numberDecimal" value="0x00002002"/>
+        <flag name="numberPassword" value="0x00000012"/>
+        <flag name="phone" value="0x00000003"/>
+        <flag name="datetime" value="0x00000004"/>
+        <flag name="date" value="0x00000014"/>
+        <flag name="time" value="0x00000024"/>
+    </attr>
+    <attr name="imeOptions">
+        <flag name="normal" value="0x00000000"/>
+        <flag name="actionUnspecified" value="0x00000000"/>
+        <flag name="actionNone" value="0x00000001"/>
+        <flag name="actionGo" value="0x00000002"/>
+        <flag name="actionSearch" value="0x00000003"/>
+        <flag name="actionSend" value="0x00000004"/>
+        <flag name="actionNext" value="0x00000005"/>
+        <flag name="actionDone" value="0x00000006"/>
+        <flag name="actionPrevious" value="0x00000007"/>
+        <flag name="flagNoFullscreen" value="0x2000000"/>
+        <flag name="flagNavigatePrevious" value="0x4000000"/>
+        <flag name="flagNavigateNext" value="0x8000000"/>
+        <flag name="flagNoExtractUi" value="0x10000000"/>
+        <flag name="flagNoAccessoryAction" value="0x20000000"/>
+        <flag name="flagNoEnterAction" value="0x40000000"/>
+        <flag name="flagForceAscii" value="0x80000000"/>
+    </attr>
+    <attr name="shape">
+        <enum name="oval" value="0"/>
+        <enum name="roundRect" value="1"/>
+        <enum name="template" value="2"/>
+    </attr>
+
+    <declare-styleable name="AutoTextSizeView">
+        <attr format="dimension" name="minTextSize"/>
+    </declare-styleable>
+    <declare-styleable name="SingleEditText">
+        <attr format="string" name="hintText"/>
+        <attr format="string" localization="suggested" name="text"/>
+        <attr name="inputType"/>
+        <attr name="imeOptions"/>
+        <attr format="integer" name="maxLength"/>
+    </declare-styleable>
+    <declare-styleable name="ExceptionView">
+        <attr format="reference" name="exceptionImage"/>
+        <attr format="string" name="exceptionText"/>
+        <attr format="string" name="buttonText"/>
+    </declare-styleable>
+    <declare-styleable name="LoadingTextView">
+        <attr name="textStyle">
+            <enum name="noText" value="-1"/>
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+        <attr format="integer" name="gravity"/>
+        <attr format="dimension" name="textSize"/>
+        <attr format="color" name="textColor"/>
+        <attr format="dimension" name="textPadding"/>
+        <attr name="text"/>
+    </declare-styleable>
+    <declare-styleable name="Gallery">
+        <attr name="gravity"/>
+        <attr format="integer" name="animationDuration"/>
+        <attr format="float" name="unselectedAlpha"/>
+        <attr format="dimension" name="spacing"/>
+    </declare-styleable>
+    <declare-styleable name="AbsSpinner">
+        <attr format="reference" name="entries"/>
+    </declare-styleable>
+    <declare-styleable name="TitleBar">
+        <attr name="textColor"/>
+        <attr format="color|reference" name="textButtonColor"/>
+        <attr format="color|reference" name="titleBackground"/>
+        <attr format="reference" name="backButton"/>
+        <attr format="string" name="titleText"/>
+    </declare-styleable>
+    <declare-styleable name="TitleBar_Layout">
+        <attr name="layout_align">
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="GroupLayout">
+        <attr format="dimension" name="dividerSidePadding"/>
+        <attr format="dimension" name="dividerHeight"/>
+        <attr format="color" name="dividerColor"/>
+        <attr format="reference" name="itemSelector"/>
+    </declare-styleable>
+    <declare-styleable name="AdapterLinearLayout">
+        <attr name="dividerHeight"/>
+        <attr name="dividerColor"/>
+    </declare-styleable>
+    <declare-styleable name="RoundAngleImageView">
+        <attr format="dimension" name="roundWidth"/>
+        <attr format="dimension" name="roundHeight"/>
+    </declare-styleable>
+    <declare-styleable name="WheelView">
+        <attr name="textSize"/>
+    </declare-styleable>
+    <declare-styleable name="PullToRefresh">
+        <attr format="reference|color" name="ptrRefreshableViewBackground"/>
+        <attr format="reference|boolean" name="ptrOverScroll"/>
+        <attr format="reference|boolean" name="ptrScrollingWhileRefreshingEnabled"/>
+        <attr format="reference|boolean" name="ptrListViewExtrasEnabled"/>
+        <attr format="boolean" name="ptrDoublePullEnabled"/>
+        <attr format="reference" name="ptrDoublePullFirstHeader"/>
+    </declare-styleable>
+    <declare-styleable name="ExSwitch">
+        <attr format="reference" name="textArray"/>
+        <attr format="dimension" name="thumbPadding"/>
+        <attr format="dimension" name="thumbPaddingTop"/>
+        <attr format="dimension" name="thumbPaddingBottom"/>
+        <attr format="dimension" name="thumbPaddingLeft"/>
+        <attr format="dimension" name="thumbPaddingRight"/>
+        <attr format="boolean" name="draggable"/>
+        <attr format="reference" name="thumb"/>
+        <attr format="reference" name="switchTrack"/>
+        <attr format="integer" name="numItems"/>
+        <attr format="dimension" name="itemWidth">
+            <enum name="wrap_content" value="-1"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="TabSwitch">
+        <attr name="textArray"/>
+    </declare-styleable>
+    <declare-styleable name="ExCalendarView">
+
+        <!-- The first day of week according to {@link java.util.Calendar}. -->
+        <attr format="integer" name="firstDayOfWeek"/>
+        <!-- Whether do show week numbers. -->
+        <attr format="boolean" name="showWeekNumber"/>
+        <!-- The minimal date shown by this calendar view in mm/dd/yyyy format. -->
+        <attr format="string" name="minDate"/>
+        <!-- The maximal date shown by this calendar view in mm/dd/yyyy format. -->
+        <attr format="string" name="maxDate"/>
+        <!-- The number of weeks to be shown. -->
+        <attr format="integer" name="shownWeekCount"/>
+        <!-- The background color for the selected week. -->
+        <attr format="color|reference" name="selectedWeekBackgroundColor"/>
+        <!-- The color for the dates of the focused month. -->
+        <attr format="color|reference" name="focusedMonthDateColor"/>
+        <!-- The color for the dates of an unfocused month. -->
+        <attr format="color|reference" name="unfocusedMonthDateColor"/>
+        <!-- The color for the week numbers. -->
+        <attr format="color|reference" name="weekNumberColor"/>
+        <!-- The color for the separator line between weeks. -->
+        <attr format="color|reference" name="weekSeparatorLineColor"/>
+        <!-- Drawable for the vertical bar shown at the beginning and at the end of the selected date. -->
+        <attr format="reference" name="selectedDateBackground"/>
+        <attr format="reference" name="todayBackground"/>
+        <!-- The text appearance for the week day abbreviation of the calendar header. -->
+        <attr format="color|reference" name="weekDayTextColor"/>
+        <attr format="dimension" name="weekDayTextSize"/>
+        <!-- The text appearance for the calendar dates. -->
+        <attr format="color|reference" name="dateTextColor"/>
+        <attr format="dimension" name="dateTextSize"/>
+        <attr format="reference" name="dotDrawable"/>
+        <attr format="reference" name="dotGrayDrawable"/>
+        <attr format="dimension" name="dotSize"/>
+    </declare-styleable>
+    <declare-styleable name="EZRoundProgressBar">
+        <attr format="color" name="roundColor"/>
+        <attr format="color" name="roundProgressColor"/>
+        <attr format="dimension" name="roundWidthPb"/>
+        <attr format="color" name="textColorPb"/>
+        <attr format="dimension" name="textSizePb"/>
+        <attr format="integer" name="max"/>
+        <attr format="boolean" name="textIsDisplayable"/>
+        <attr name="roundStyle">
+            <enum name="STROKE" value="0"/>
+            <enum name="FILL" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <!-- IndexBar -->
+    <declare-styleable name="IndexBar">
+        <attr format="color|reference" name="indexBarColorNormal"/>
+        <attr format="color|reference" name="indexBarColorPressed"/>
+        <attr format="color|reference" name="alphabetTextColor"/>
+        <attr format="dimension|reference" name="alphabetTextSize"/>
+        <attr format="dimension|reference" name="alphabetPadding"/>
+        <attr format="dimension|reference" name="indexBarRound"/>
+        <attr format="dimension|reference" name="indexBarSides"/>
+        <attr format="boolean" name="withinIndexBar"/>
+    </declare-styleable>
+
+    <!-- draglayout -->
+    <declare-styleable name="DragTopLayout">
+
+        <!-- Set the collapse panel offset -->
+        <attr format="dimension" name="dtlCollapseOffset"/>
+        <!-- Set enable drag over.The default value is true. -->
+        <attr format="boolean" name="dtlOverDrag"/>
+        <!-- Open the top view after the drag layout is created. The default value is false. -->
+        <attr format="boolean" name="dtlOpen"/>
+        <!-- The id of the top view (which will be dragged) -->
+        <attr format="reference" name="dtlTopView"/>
+        <!-- The content view which will be dragged together with "dtlTopView" -->
+        <attr format="reference" name="dtlDragContentView"/>
+        <!-- True the top view can be dragged -->
+        <attr format="boolean" name="dtlCaptureTop"/>
+    </declare-styleable>
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr format="color" name="pstsIndicatorColor"/>
+        <attr format="color" name="pstsUnderlineColor"/>
+        <attr format="color" name="pstsDividerColor"/>
+        <attr format="dimension" name="pstsIndicatorHeight"/>
+        <attr format="dimension" name="pstsUnderlineHeight"/>
+        <attr format="dimension" name="pstsDividerPadding"/>
+        <attr format="dimension" name="pstsTabPaddingLeftRight"/>
+        <attr format="dimension" name="pstsScrollOffset"/>
+        <attr format="reference" name="pstsTabBackground"/>
+        <attr format="boolean" name="pstsShouldExpand"/>
+        <attr format="boolean" name="pstsTextAllCaps"/>
+    </declare-styleable>
+    <declare-styleable name="ViewSizeCalculate">
+        <attr format="float" name="widthRatio"/>
+        <attr format="float" name="heightRatio"/>
+        <attr format="enum" name="datumRatio">
+            <enum name="datumWidth" value="1"/>
+            <enum name="datumHeight" value="2"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="ImageViewCircle">
+        <attr format="dimension" name="borderWidth"/>
+        <attr format="color" name="borderColor"/>
+        <attr format="boolean" name="borderOverlay"/>
+    </declare-styleable>
+
+    <declare-styleable name="DragSortListView">
+        <attr format="dimension" name="collapsed_height"/>
+        <attr format="float" name="drag_scroll_start"/>
+        <attr format="float" name="max_drag_scroll_speed"/>
+        <attr format="color" name="float_background_color"/>
+        <attr name="remove_mode">
+            <enum name="clickRemove" value="0"/>
+            <enum name="flingRemove" value="1"/>
+        </attr>
+        <attr format="boolean" name="track_drag_sort"/>
+        <attr format="float" name="float_alpha"/>
+        <attr format="float" name="slide_shuffle_speed"/>
+        <attr format="integer" name="remove_animation_duration"/>
+        <attr format="integer" name="drop_animation_duration"/>
+        <attr format="boolean" name="drag_enabled"/>
+        <attr format="boolean" name="sort_enabled"/>
+        <attr format="boolean" name="remove_enabled"/>
+        <attr name="drag_start_mode">
+            <enum name="onDown" value="0"/>
+            <enum name="onMove" value="1"/>
+            <enum name="onLongPress" value="2"/>
+        </attr>
+        <attr format="integer" name="drag_handle_id"/>
+        <attr format="integer" name="fling_handle_id"/>
+        <attr format="integer" name="click_remove_id"/>
+        <attr format="boolean" name="use_default_controller"/>
+    </declare-styleable>
+
+    <declare-styleable name="ExImageView">
+        <attr name="shape"/>
+        <attr format="dimension" name="radius"/>
+        <attr format="reference" name="template"/>
+        <attr format="boolean" name="fixed"/>
+    </declare-styleable>
+
+    <declare-styleable name="ColorTrackView">
+        <attr format="string" name="ctvText"/>
+        <attr format="dimension" name="ctvText_size"/>
+        <attr format="color" name="ctvText_origin_color"/>
+        <attr format="color" name="ctvText_change_color"/>
+        <attr format="float" name="ctvProgress"/>
+        <attr format="integer" name="ctvDirection"/>
+    </declare-styleable>
+
+    <declare-styleable name="HeaderScrollLayout">
+        <attr format="dimension" name="minHeaderHeight"/>
+    </declare-styleable>
+
+    <attr name="layout_divider">
+        <enum name="none" value="0"/>
+        <enum name="top" value="1"/>
+        <enum name="bottom" value="2"/>
+        <enum name="both" value="3"/>
+    </attr>
+
+    <declare-styleable name="EZTableView">
+        <attr name="dividerHeight"/>
+        <attr name="dividerColor"/>
+    </declare-styleable>
+    <declare-styleable name="EZTableView_Layout">
+        <attr name="layout_divider"/>
+    </declare-styleable>
+
+    <declare-styleable name="EZTableSection">
+        <attr name="dividerHeight"/>
+        <attr name="dividerColor"/>
+        <attr format="dimension" name="dividerLeftPadding"/>
+        <attr format="dimension" name="dividerRightPadding"/>
+    </declare-styleable>
+    <declare-styleable name="EZTableSection_Layout">
+    </declare-styleable>
+
+    <declare-styleable name="EZListItem">
+        <attr format="string" name="nameText"/>
+        <attr format="color" name="nameTextColor"/>
+        <attr format="dimension" name="nameTextSize"/>
+        <attr format="string" name="valueText"/>
+        <attr format="color" name="valueTextColor"/>
+        <attr format="dimension" name="valueTextSize"/>
+        <attr format="reference" name="arrow"/>
+        <attr format="boolean" name="showArrow"/>
+    </declare-styleable>
+
+    <declare-styleable name="EZListImageItem">
+        <attr format="reference" name="image"/>
+        <attr format="reference" name="subImage"/>
+        <attr format="enum" name="imageMode">
+            <enum name="none" value="0"/>
+            <enum name="single" value="1"/>
+            <enum name="pip" value="2"/>
+        </attr>
+        <attr name="nameText"/>
+        <attr name="nameTextColor"/>
+        <attr name="nameTextSize"/>
+        <attr name="valueText"/>
+        <attr format="string" name="subValueText"/>
+        <attr name="valueTextColor"/>
+        <attr name="valueTextSize"/>
+        <attr name="arrow"/>
+        <attr name="showArrow"/>
+    </declare-styleable>
+
+    <declare-styleable name="EZSingleSelectItem">
+        <attr name="nameText"/>
+        <attr name="nameTextColor"/>
+        <attr name="nameTextSize"/>
+        <attr format="boolean" name="showDesc"/>
+        <attr format="string" name="descText"/>
+        <attr format="color" name="descTextColor"/>
+        <attr format="dimension" name="descTextSize"/>
+        <attr format="boolean" name="checked"/>
+    </declare-styleable>
+
+    <declare-styleable name="EZMultipleSelectItem">
+        <attr name="image"/>
+        <attr name="subImage"/>
+        <attr name="imageMode"/>
+        <attr name="nameText"/>
+        <attr name="nameTextColor"/>
+        <attr name="nameTextSize"/>
+        <attr format="integer" name="nameTextLines"/>
+        <attr name="checked"/>
+    </declare-styleable>
+
+    <declare-styleable name="EZListSwitchItem">
+        <attr name="nameText"/>
+        <attr name="nameTextColor"/>
+        <attr name="nameTextSize"/>
+        <attr name="showDesc"/>
+        <attr name="descText"/>
+        <attr name="descTextColor"/>
+        <attr name="descTextSize"/>
+        <attr format="boolean" name="on"/>
+        <attr format="boolean" name="toggleable"/>
+        <attr format="boolean" name="showProgress"/>
+    </declare-styleable>
+
+    <declare-styleable name="EZEmptyView">
+        <attr format="reference" name="icon"/>
+        <attr name="text"/>
+        <attr name="buttonText"/>
+        <attr format="integer" name="buttonActionKey"/>
+    </declare-styleable>
+
+    <declare-styleable name="EZListSearchInputHeader">
+        <attr format="string" name="exitText"/>
+    </declare-styleable>
+
+    <declare-styleable name="HomeVideoPlayer"/>
+
+    <declare-styleable name="SwipeMenuLayout">
+        <attr format="boolean" name="swipeEnable"/>
+        <attr format="boolean" name="ios"/>
+        <attr format="boolean" name="leftSwipe"/>
+    </declare-styleable>
+
+    <declare-styleable name="speed">
+        <attr format="color|integer" name="cycle_color"/>
+        <attr format="color" name="line_background"/>
+        <attr format="dimension" name="cycle_radius"/>
+        <attr format="dimension" name="line_height"/>
+        <attr format="string" name="status_text"/>
+        <attr format="color|integer" name="status_text_color"/>
+        <attr format="dimension" name="status_text_size"/>
+        <attr format="integer" name="num_max"/>
+        <attr format="integer" name="num_min"/>
+        <attr format="integer" name="num_order"/>
+    </declare-styleable>
+
+    <declare-styleable name="RatioCircleLayout">
+        <attr name="ring_width" format="dimension"/>
+        <attr name="ring_color" format="color"/>
+        <attr name="ring_background_width" format="dimension"/>
+        <attr name="ring_background_color" format="color"/>
+        <attr name="ring_angle" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="move_control">
+        <attr format="color|integer" name="cycle_color_move"/>
+        <attr format="color" name="line_background_move"/>
+        <attr format="dimension" name="cycle_radius_move"/>
+        <attr format="dimension" name="line_height_move"/>
+        <attr format="string" name="status_text_move"/>
+        <attr format="color|integer" name="status_text_color_move"/>
+        <attr format="dimension" name="status_text_size_move"/>
+        <attr format="integer" name="num_max_move"/>
+        <attr format="integer" name="num_min_move"/>
+        <attr format="integer" name="num_order_move"/>
+    </declare-styleable>
+
+    <declare-styleable name="screenIndex">
+        <attr format="integer" name="screenIndex"/>
+    </declare-styleable>
+    <declare-styleable name="PersonalView">
+        <attr format="reference" name="signImage"/>
+        <attr format="string" name="signName"/>
+        <attr format="dimension" name="paddingleft"/>
+    </declare-styleable>
+
+    <declare-styleable name="NumberProgressBar">
+        <attr format="color" name="progress_reached_color"/>
+        <attr format="color" name="progress_unreached_color"/>
+        <attr format="color" name="progress_text_color"/>
+        <attr format="dimension" name="progress_text_size"/>
+        <attr format="dimension" name="progress_reached_bar_height"/>
+        <attr format="dimension" name="progress_unreached_bar_height"/>
+        <attr format="dimension" name="progress_text_offset"/>
+        <attr format="enum" name="progress_text_visibility">
+            <enum name="visible" value="0"/>
+            <enum name="invisible" value="1"/>
+        </attr>
+        <attr format="integer" name="progress"/>
+        <attr format="integer" name="number_max"/>
+        <attr format="reference|string" name="number_text"/>
+    </declare-styleable>
+    <declare-styleable name="Themes">
+        <attr format="reference" name="numberProgressBarStyle"/>
+    </declare-styleable>
+
+    <declare-styleable name="ListItemView">
+        <attr format="string" name="main_text"/>
+        <attr format="string" name="hint_text"/>
+        <attr format="enum" name="list_style">
+            <enum name="ys_list_1" value="1"/>
+            <enum name="ys_list_2" value="2"/>
+            <enum name="ys_list_3" value="3"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="RealPlayPtzAngleView">
+        <attr format="enum" name="ptz_angle_style">
+            <enum name="horizontal" value="1"/>
+            <enum name="vertical" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SingleSelectItemView">
+        <attr format="string" name="title_text"/>
+        <attr format="string" name="content_text"/>
+        <attr format="enum" name="single_style">
+            <enum name="single_select_1" value="1"/>
+            <enum name="single_select_2" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ListSwitchItem">
+        <attr format="string" name="upper_text"/>
+        <attr format="string" name="down_text"/>
+        <attr format="enum" name="switch_style">
+            <enum name="list_switch_1" value="1"/>
+            <enum name="list_switch_2" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="HistoryTimeBar">
+        <attr name="timeTextSize" format="dimension"/>
+        <attr name="timeTextColor" format="color"/>
+        <attr name="timeTextPadding" format="dimension"/>
+        <attr name="timeCutHeight" format="dimension" />
+        <attr name="timeFactor" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="HistoryTimeCut">
+        <attr name="left_thumb" format="reference"/>
+        <attr name="right_thumb" format="reference"/>
+        <attr name="stroke_width" format="integer|dimension"/>
+        <attr name="stroke_color" format="color|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="androidWheelView">
+        <attr name="awv_textsize" format="integer" />
+        <attr name="awv_lineSpace" format="float" />
+        <attr name="awv_centerTextColor" format="integer" />
+        <attr name="awv_outerTextColor" format="integer" />
+        <attr name="awv_dividerTextColor" format="integer" />
+        <attr name="awv_itemsVisibleCount" format="integer" />
+        <attr name="awv_isLoop" format="boolean" />
+        <attr name="awv_initialPosition" format="integer" />
+        <attr name="awv_scaleX" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="EZRecyclerViewItem">
+        <attr name="left_width" format="integer"/>
+        <attr name="right_width" format="integer"/>
+        <attr name="move_range" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="top_left_radius" format="dimension"/>
+        <attr name="top_right_radius" format="dimension"/>
+        <attr name="bottom_left_radius" format="dimension"/>
+        <attr name="bottom_right_radius" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="MaxHeightView">
+        <attr name="mhv_HeightRatio" format="reference|float" />
+        <attr name="mhv_HeightDimen" format="reference|dimension" />
+    </declare-styleable>
+</resources>

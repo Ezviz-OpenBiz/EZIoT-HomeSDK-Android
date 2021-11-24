@@ -1,0 +1,9 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="22dp"
+    android:height="22dp"
+    android:viewportWidth="22"
+    android:viewportHeight="22">
+  <path
+      android:pathData="M17,2H5C3.3,2 2,3.3 2,5v12c0,1.7 1.3,3 3,3h12c1.7,0 3,-1.3 3,-3V5C20,3.3 18.7,2 17,2zM18,17c0,0.6 -0.4,1 -1,1H5c-0.6,0 -1,-0.4 -1,-1V5c0,-0.6 0.4,-1 1,-1h12c0.6,0 1,0.4 1,1V17z"
+      android:fillColor="@color/unselect_button_color"/>
+</vector>

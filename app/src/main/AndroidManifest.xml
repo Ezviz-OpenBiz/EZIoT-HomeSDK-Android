@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.eziot.iotsdkdemo">
+    <!-- 开启网络访问权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 允许访问网络状态的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <!-- 允许访问wifi状态的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!--蓝牙权限-->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <!--让应用启动设备发现或操纵蓝牙设置-->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:name="com.eziot.demo.CustomApplication"
+        tools:replace="allowBackup"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+        tools:targetApi="n">
+        <activity android:name="com.eziot.demo.generalSetting.EZIoTGeneralSettingActivity"/>
+        <activity android:name="com.eziot.demo.generalSetting.EZIoTInputVerifyCodeActivity" />
+        <activity android:name="com.eziot.demo.wificonfig.EZIoTConfigDetailActivity" />
+        <activity android:name="com.eziot.demo.user.EZIoTVerifyNewAccountActivity" />
+        <activity android:name="com.eziot.demo.user.EZIoTInputNewAccountActivity" />
+        <activity android:name="com.eziot.demo.user.EZIoTModifyPwdActivity" />
+        <activity android:name="com.eziot.demo.generalSetting.EZIoTTerminalDeleteActivity" />
+        <activity android:name="com.eziot.demo.user.EZIoTVerifyPhoneOrEmailActivity" />
+        <activity android:name="com.eziot.demo.generalSetting.EZIoTTerminalManageActivity" />
+        <activity android:name="com.eziot.demo.generalSetting.EZIoTAccountSecurityActivity" />
+        <activity android:name="com.eziot.demo.wificonfig.EZIoTAPConfigSuccessActivity" />
+        <activity android:name="com.eziot.demo.wificonfig.EZIoTDevWifiListActivity" />
+        <activity android:name="com.eziot.demo.wificonfig.EZIoTWifiConfigActivity"/>
+        <activity android:name="com.eziot.demo.message.EZIoTMessageDetailActivity" />
+        <activity android:name="com.eziot.demo.message.EZIoTMessageTypeListActivity" />
+        <activity android:name="com.eziot.demo.message.EZIoTMessageListActivity" />
+        <activity android:name="com.eziot.demo.EZIoTGuideActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".smart.SmartMainActivity" />
+        <activity android:name=".wificonfig.fastap.TouchApActivity" />
+        <activity android:name=".user.UserMainActivity" />
+        <activity android:name=".user.UserInfoActivity" />
+        <activity android:name=".user.TerminalActivity" />
+        <activity android:name=".user.UserAccountActivity" />
+        <activity android:name=".device.DeviceMainActivity" />
+        <activity android:name=".family.FamilyMainActivity" />
+        <activity android:name=".family.GroupMainActivity" />
+        <activity android:name=".message.MessageActivity" />
+        <activity android:name=".wificonfig.WifiManagerActivity" />
+        <activity android:name=".wificonfig.line.LineActivity" />
+        <activity android:name=".ipc.IpcMainActivity" />
+        <activity android:name=".ipc.RealPlayActivity" />
+        <activity android:name=".ipc.PlaybackActivity" />
+        <activity android:name=".ble.BleMainActivity" />
+        <activity android:name="com.eziot.demo.user.EZIoTLoginActivity" />
+        <activity android:name="com.eziot.demo.user.EZIoTRegisterActivity" />
+        <activity android:name="com.eziot.demo.user.EZIoTUserInfoActivity" />
+        <activity android:name="com.eziot.demo.user.EZIoTResetPwdActivity" />
+        <activity android:name="com.eziot.demo.EZIoTMainTabActivity"
+            android:launchMode="singleTask"
+            />
+        <activity android:name="com.eziot.demo.family.EZIoTFamilySelectActivity" />
+        <activity android:name="com.eziot.demo.family.EZIoTFamilyListActivity" />
+        <activity android:name="com.eziot.demo.family.EZIoTFamilyAddActivity" />
+        <activity android:name="com.eziot.demo.family.EZIoTFamilyInfoActivity" />
+        <activity android:name="com.eziot.demo.family.EZIoTFamilyAcceptInviteActivity" />
+        <activity android:name="com.eziot.demo.group.EZIoTGroupListActivity" />
+        <activity android:name="com.eziot.demo.group.EZIoTGroupAddActivity" />
+        <activity android:name="com.eziot.demo.group.EZIoTGroupSelectActivity" />
+        <activity android:name="com.eziot.demo.group.EZIoTGroupInfoActivity"/>
+        <activity android:name="com.eziot.demo.group.EZIoTGroupModifyNameActivity"/>
+        <activity android:name="com.eziot.demo.device.EZIoTDeviceListActivity" />
+        <activity android:name="com.eziot.demo.device.EZIoTDeviceDetailActivity"/>
+        <activity android:name="com.eziot.demo.family.EZIoTFamilyInviteMemberActivity"/>
+        <activity android:name="com.eziot.demo.family.EZIoTFamilyModifyNameActivity"/>
+        <activity android:name="com.eziot.demo.device.EZIoTDeviceSettingActivity"/>
+        <activity android:name="com.eziot.demo.device.EZIoTDeviceModifyNameActivity"/>
+        <activity android:name="com.eziot.demo.device.update.EZIoTDeviceUpdateInfoActivity"/>
+        <activity android:name="com.eziot.demo.device.EZIoTDeviceListTypeActivity"/>
+        <activity android:name="com.eziot.demo.device.EZIoTLocalDeviceListByFamilyActivity"/>
+        <activity android:name="com.eziot.demo.device.EZIoTLocalDeviceListByRoomActivity"/>
+        <activity android:name="com.eziot.demo.device.EZIoTLocalDeviceListByRoomLimitActivity"/>
+        <activity android:name="com.eziot.demo.device.EZIoTDeviceModifyResourceActivity"/>
+        <activity android:name="com.eziot.demo.generalSetting.EZIoTMsgSwitchActivity"/>
+        <activity android:name="com.eziot.demo.about.EZIoTAboutActivity"/>
+        <activity android:name="com.eziot.demo.debug.CrashInfoActivity"/>
+
+    </application>
+
+</manifest>

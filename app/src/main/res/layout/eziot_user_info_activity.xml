@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="@string/userInfo" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        android:id="@+id/userNameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/userNameTv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/account"
+            android:layout_margin="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:id="@+id/userNameValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/userNameTv"
+            app:layout_constraintBaseline_toBaselineOf="@id/userNameTv"
+            />
+
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/common2_icon_arrowgrey" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/userNameLayout"
+        android:id="@+id/emailLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/emailTv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userNameLayout" />
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:id="@+id/emailValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/emailTv"
+            app:layout_constraintBaseline_toBaselineOf="@id/emailTv"
+            />
+
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/common2_icon_arrowgrey" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/emailLayout"
+        android:id="@+id/phoneLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/phoneTv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/phone"
+            android:layout_margin="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailTv" />
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:id="@+id/phoneValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/phoneTv"
+            app:layout_constraintBaseline_toBaselineOf="@id/phoneTv"
+            />
+
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/common2_icon_arrowgrey" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/phoneLayout"
+        android:id="@+id/registerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/registerDateTv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/registerDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneLayout" />
+
+        <TextView
+            android:id="@+id/registerDateValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintLeft_toRightOf="@id/registerDateTv"
+            app:layout_constraintBaseline_toBaselineOf="@+id/registerDateTv" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/registerLayout"
+        android:id="@+id/genderLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/genderTv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/gender"
+            android:layout_margin="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registerDateTv" />
+
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/genderValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintLeft_toRightOf="@id/genderTv"
+            app:layout_constraintBaseline_toBaselineOf="@+id/genderTv" />
+
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/common2_icon_arrowgrey" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/genderLayout"
+        android:id="@+id/lastLoginDevLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/lastLoginDeviceTv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="10dp"
+            android:text="@string/lastLoginDevice"
+            app:layout_constraintTop_toBottomOf="@+id/genderLayout" />
+
+        <TextView
+            android:id="@+id/lastLoginDeviceValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintLeft_toRightOf="@id/lastLoginDeviceTv"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lastLoginDeviceTv" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/lastLoginDevLayout"
+        android:id="@+id/lastLoginTimeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/lastLoginTimeTv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/lastLoginTime"
+            android:layout_margin="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lastLoginDevLayout" />
+
+        <TextView
+            android:id="@+id/lastLoginTimeValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintLeft_toRightOf="@id/lastLoginTimeTv"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lastLoginTimeTv" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/lastLoginTimeLayout"
+        android:id="@+id/registerPlaceLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/locationTv"
+            android:layout_width="100dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/registerPlace"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lastLoginTimeLayout" />
+
+        <TextView
+            android:id="@+id/locationValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintLeft_toRightOf="@id/locationTv"
+            app:layout_constraintBaseline_toBaselineOf="@+id/locationTv" />
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/birthLayout"
+        app:layout_constraintTop_toBottomOf="@+id/registerPlaceLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/birthTv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/birth"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/locationTv" />
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/birthValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintLeft_toRightOf="@id/birthTv"
+            app:layout_constraintBaseline_toBaselineOf="@+id/birthTv" />
+
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/common2_icon_arrowgrey"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/passwordLayout"
+        app:layout_constraintTop_toBottomOf="@+id/birthLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/passwordTv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/locationTv" />
+
+        <TextView
+            android:text="*****"
+            android:layout_weight="1"
+            android:id="@+id/passwordValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintLeft_toRightOf="@id/birthTv"
+            app:layout_constraintBaseline_toBaselineOf="@+id/birthTv" />
+
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/common2_icon_arrowgrey" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

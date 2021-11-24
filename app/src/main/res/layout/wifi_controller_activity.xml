@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/wifiNameEt"
+        android:layout_width="match_parent"
+        android:text="LUMIMAN_E44220736"
+        android:layout_height="wrap_content"
+        />
+
+    <EditText
+        android:id="@+id/wifiPwdEt"
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="开始连接wifi"
+        android:layout_height="wrap_content"
+        android:onClick="onClickConnectWifi"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="拉取设备信息"
+        android:layout_height="wrap_content"
+        android:onClick="onClickGetDeviceInfo"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="向设备配网"
+        android:layout_height="wrap_content"
+        android:onClick="onClickConfigWifi"
+        />
+
+</LinearLayout>

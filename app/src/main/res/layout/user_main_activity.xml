@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    tools:ignore="HardcodedText"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/account_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="用户名"
+        />
+
+    <EditText
+        android:id="@+id/pwd_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="密码"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickGetAreaInfo"
+            android:text="获取国家信息"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickGetAreaList"
+            android:text="获取区域列表"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="进入用户信息页面"
+            android:onClick="onClickGoToUserInfo"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:onClick="onClickGoToTerminal"
+            android:layout_height="wrap_content"
+            android:text="进入终端绑定管理页面" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:onClick="onClickGoToAccount"
+            android:layout_height="wrap_content"
+            android:text="账户管理" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

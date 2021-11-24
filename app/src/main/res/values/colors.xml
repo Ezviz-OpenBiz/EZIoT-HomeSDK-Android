@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="special">#FFFFFFFF</color>
+    <color name="c13_text">#FB4848</color>
+    <color name="black_positive">#050505</color>
+    <color name="gray_positive">#ABABAB</color>
+
+
+    <color name="brand_color">#FF4C80F7</color>
+    <color name="brand_color_a60">@color/a60</color>
+    <color name="a70">#B24C80F7</color>
+    <color name="a60">#994C80F7</color>
+    <color name="a50">#7F4C80F7</color>
+    <color name="a20">#334C80F7</color>
+    <color name="import_information_color">#FFFF8F42</color>
+    <color name="link_color">#FF4C80F7</color>
+    <color name="incorrect_color">#FFFB4848</color>
+    <color name="correct_color">#FF52C41B</color>
+
+    <color name="primary_label_color">#FF333333</color>
+    <color name="secondary_label_color">#FF666666</color>
+    <color name="tertiary_label_color">#FF999999</color>
+    <color name="quarternary_label_color">#FFCCCCCC</color>
+    <color name="inverse_label_color">#FFFFFFFF</color>
+    <color name="primary_disable_button_label_color">#FFFFFFFF</color>
+    <color name="secondary_disable_button_label_color">#FFFFFFFF</color>
+    <color name="primary_highlight_button_label_color">#B24C80F7</color>
+    <color name="primary_highlight_inverse_button_label_color">#B2FFFFFF</color>
+    <color name="secondary_highlight_button_label_color">#B2666666</color>
+
+    <color name="primary_button_color">#FF4C80F7</color>
+    <color name="primary_disable_button_color">#FFDEDEDE</color>
+    <color name="primary_highlight_button_color">#B24C80F7</color>
+    <color name="secondary_button_color">#FFCCCCCC</color>
+    <color name="secondary_disable_button_color">#FFDEDEDE</color>
+    <color name="secondary_highlight_button_color">#B2CCCCCC</color>
+    <color name="disable_button_color">#FFDEDEDE</color>
+    <color name="unselect_button_color">#FFCCCCCC</color>
+    <color name="highlight_button_color">#B24C80F7</color>
+
+    <color name="input_color">#FFDEDEDE</color>
+    <color name="separator_color">#FFEDEDED</color>
+    <color name="popup_color">#FFF1F1F1</color>
+
+    <color name="primary_background_color">#FFFFFFFF</color>
+    <color name="secondary_background_color">#FFFFFFFF</color>
+    <color name="tertiary_background_color">#FFFFFFFF</color>
+    <color name="quarternary_background_color">#FFFFFFFF</color>
+    <color name="extension_background_color">#FFFAFAFC</color>
+    <color name="fill_color">#FFF8F8F8</color>
+    <color name="fill_secondary_color">#FFF8F8F8</color>
+
+    <color name="popup_mask_out_color">#66000000</color>
+    <color name="guide_mask_out_color">#BF000000</color>
+    <color name="toast_mask_color">#CC000000</color>
+
+    <color name="primary_icon_color">#FF4C80F7</color>
+    <color name="secondary_icon_color">#FF333333</color>
+    <color name="tertiary_icon_color">#FF666666</color>
+    <color name="quarternary_icon_color">#FF999999</color>
+    <color name="inverse_icon_color">#FFFFFFFF</color>
+    <color name="disable_icon_color">#FFCCCCCC</color>
+
+    <color name="disable_btn_title_color">#FFFFFFFF</color>
+</resources>

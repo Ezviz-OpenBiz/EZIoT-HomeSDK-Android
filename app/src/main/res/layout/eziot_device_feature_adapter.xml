@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/deviceItemLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/featureNameTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/featureKeyLayout"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/featureNameTv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/featureKeyTv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp" />
+
+        <ImageView
+            android:id="@+id/rightIv"
+            android:layout_width="wrap_content"
+            android:src="@drawable/common2_icon_arrowgrey"
+            android:layout_marginEnd="20dp"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/featureValueLayout"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/featureKeyLayout"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/featureTypeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/common2_icon_arrowgrey" />
+
+        <TextView
+            android:id="@+id/featureValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:singleLine="true"
+            android:layout_marginEnd="20dp"
+            android:ellipsize="end"
+            android:src="@drawable/common2_icon_arrowgrey"
+            />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/controlTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:src="@drawable/common2_icon_arrowgrey"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/control"
+        app:layout_constraintBottom_toBottomOf="@+id/lineView"
+        app:layout_constraintTop_toBottomOf="@+id/featureValueLayout" />
+
+
+    <LinearLayout
+        android:id="@+id/featureViewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/lineView"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/featureValueLayout" />
+
+    <View
+        android:id="@+id/lineView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20dp"
+        android:background="@color/black"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/controlTv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

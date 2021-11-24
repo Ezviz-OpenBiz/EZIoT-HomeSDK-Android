@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/wificonfigBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:onClick="onClickConfigWifi"
+            android:text="配网模块"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            android:id="@+id/smartBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="智能场景模块"
+            android:onClick="onClickSmart"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            android:id="@+id/userBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="用户模块"
+            android:onClick="onClickUser"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            android:id="@+id/deviceBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="设备模块"
+            android:onClick="onClickDevice"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            android:id="@+id/familyBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="家庭模块"
+            android:onClick="onClickFamily"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="房间模块"
+        android:onClick="onClickGroup"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="消息模块"
+        android:onClick="onClickMessage"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickLogin"
+        android:text="登录"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickGetLocation"
+        android:text="测试区域信息"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickGoToWifiManager"
+        android:text="wifi管理"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickGoToLine"
+        android:text="有线配网"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickGoToIPC"
+        android:text="IPC取流模块"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickBle"
+        android:text="蓝牙"
+        />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickGoToDemo"
+        android:text="跳转demo页面"
+        />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickGoToCrash"
+        android:text="查看崩溃信息"
+        />
+
+
+
+</LinearLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.eziot.demo.generalSetting.EZIoTGeneralSettingActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="@string/mine_firstPage_common_settings" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/accountSecurityItem"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        android:gravity="center_vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/accountSecurity"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/common2_icon_arrowgrey" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/messageSwitchLayout"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/accountSecurityItem"
+        android:layout_width="match_parent"
+        android:onClick="onClickMessageSwitch"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/messageSwitch"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/common2_icon_arrowgrey" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
