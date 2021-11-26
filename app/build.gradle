@@ -84,15 +84,17 @@ dependencies {
     api 'androidx.annotation:annotation:1.3.0'
     kapt 'androidx.annotation:annotation:1.3.0'
 
-    api(name: 'eziot-common-release', ext: 'aar')
-    api(name: 'eziot-user-release', ext: 'aar')
-    api(name: 'eziot-family-release', ext: 'aar')
-    api(name: 'eziot-smart-release', ext: 'aar')
-    api(name: 'eziot-device-release', ext: 'aar')
-    api(name: 'eziot-lib-release', ext: 'aar')
-    api(name: 'eziot-wificonfig-release', ext: 'aar')
-    api(name: 'eziot-message-release', ext: 'aar')
-    api(name: 'eziot-push-release', ext: 'aar')
-    api(name: 'eziot-sdk-release', ext: 'aar')
+//    api(name: 'eziot-common-release', ext: 'aar')
+//    api(name: 'eziot-user-release', ext: 'aar')
+//    api(name: 'eziot-family-release', ext: 'aar')
+//    api(name: 'eziot-smart-release', ext: 'aar')
+//    api(name: 'eziot-device-release', ext: 'aar')
+//    api(name: 'eziot-lib-release', ext: 'aar')
+//    api(name: 'eziot-wificonfig-release', ext: 'aar')
+//    api(name: 'eziot-message-release', ext: 'aar')
+//    api(name: 'eziot-push-release', ext: 'aar')
+//    api(name: 'eziot-sdk-release', ext: 'aar')
+
+    api 'io.github.ezviz-open:eziot-sdk:1.0.1'
 
 }

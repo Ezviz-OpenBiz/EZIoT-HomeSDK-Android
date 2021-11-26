@@ -25,7 +25,7 @@ class EZIoTFamilyListActivity : BaseActivity() {
 
     private fun initData(){
         showWaitDialog()
-        EZIotFamilyManager.getFamilyList(object : IEZIoTResultCallback<EZIoTFamilyInfoResp> {
+        EZIotFamilyManager.getExtFamilyList(object : IEZIoTResultCallback<EZIoTFamilyInfoResp> {
             override fun onSuccess(t: EZIoTFamilyInfoResp) {
                 dismissWaitDialog()
                 familyListRv.layoutManager = LinearLayoutManager(this@EZIoTFamilyListActivity)

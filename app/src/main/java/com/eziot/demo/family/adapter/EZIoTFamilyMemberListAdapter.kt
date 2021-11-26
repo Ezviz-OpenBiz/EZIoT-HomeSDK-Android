@@ -41,7 +41,7 @@ class EZIoTFamilyMemberListAdapter(private val memberInfoList: List<EZIoTFamilyM
                 holder.removeMemberBtn.visibility = View.VISIBLE
                 holder.removeMemberBtn.setOnClickListener {
                     EZIotFamilyManager.removeFamilyMember(ezIotFamilyMemberInfo.familyId,
-                        ezIotFamilyMemberInfo.id, object : IResultCallback{
+                        ezIotFamilyMemberInfo.id.toString(), object : IResultCallback{
                         override fun onSuccess() {
                             Utils.showToast(activity,R.string.operateSuccess)
                             activity.finish()

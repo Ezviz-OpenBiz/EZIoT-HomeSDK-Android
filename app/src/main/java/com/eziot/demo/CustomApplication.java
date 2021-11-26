@@ -26,8 +26,8 @@ public class CustomApplication extends Application {
         CrashHandler crashHandler = new CrashHandler();
         crashHandler.init(this);
         BaseParams baseParams = new BaseParams();
-//        EZIoTSDK.INSTANCE.init(this,baseParams);
-        EZIotUserManager.INSTANCE.initWithParams(this, baseParams);
+        baseParams.setAppId("");
+        EZIoTSDK.INSTANCE.init(this,baseParams);
 
         EZIotUserManager.INSTANCE.setLoginAuthListener(new IEZIoTLoginAuthCallback() {
             @Override
