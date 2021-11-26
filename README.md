@@ -1,2 +1,20 @@
-# EZIoT-HomeSDK-Android
-IoT App Home SDK for Android.
+### demo介绍
+
+#### 功能模块介绍
+
+  * 登录模块：包含注册，登录，忘记密码功能
+  * 家庭模块：包含添加家庭，删除家庭，修改家庭信息，邀请家庭成员和移除家庭成员等功能
+  * 房间模块：包含添加房间，删除房间，移动房间设备，修改房间信息
+  * 设备模块：包含从服务器中拉取设备列表，从本地数据库中拉取设备信息，对设备功能点进行操作，以及设备升级相关逻辑
+  * 消息模块：包含消息列表展示，消息操作和消息免打扰开关逻辑
+  * 配网模块：包含接触式配网
+
+
+
+
+使用AndroidStudio打开工程Demo编译运行即可
+
+#### 主界面
+
+<img src="https://resource.eziot.com/group1/M00/00/80/CtwQE2GUrHGACi31AADA2nZ-90k543.jpg" width = "300px" height = "700px"  />
+
