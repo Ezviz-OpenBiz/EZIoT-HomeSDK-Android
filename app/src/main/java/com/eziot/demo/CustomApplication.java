@@ -28,20 +28,6 @@ public class CustomApplication extends Application {
         BaseParams baseParams = new BaseParams();
         baseParams.setAppId("");
         EZIoTSDK.INSTANCE.init(this,baseParams);
-
-        EZIotUserManager.INSTANCE.setLoginAuthListener(new IEZIoTLoginAuthCallback() {
-            @Override
-            public void onAuthException() {
-
-            }
-        });
-
-        EZIotUserManager.INSTANCE.setSessionUpdateListener(new IEZIoTRefreshSessionCallback() {
-            @Override
-            public void onRefreshSession(@NonNull String session, @NonNull String rfSession) {
-
-            }
-        });
     }
 
 
