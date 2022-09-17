@@ -17,7 +17,7 @@
         <EditText
             android:id="@+id/apiUrlEt"
             android:layout_width="match_parent"
-            android:text="https://api.eziot.com"
+            android:text=""
             android:layout_height="wrap_content" />
 
     </LinearLayout>
