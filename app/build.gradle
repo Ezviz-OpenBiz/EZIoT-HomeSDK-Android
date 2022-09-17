@@ -79,5 +79,6 @@ dependencies {
     kapt 'androidx.annotation:annotation:1.3.0'
 
     api 'io.github.ezviz-open:eziot-sdk:1.0.2'
+    api 'io.github.ezviz-open:eziot-midware-full:0.0.1'
 
 }
