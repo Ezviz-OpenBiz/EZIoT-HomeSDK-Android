@@ -2,13 +2,7 @@
 buildscript {
     ext.kotlin_version = "1.3.72"
     repositories {
-        maven {
-            credentials {
-                username 'civil'
-                password 'civil'
-            }
-            url 'http://af.hikvision.com.cn/artifactory/maven-down'
-        }
+
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
@@ -27,13 +21,7 @@ buildscript {
 
 allprojects {
     repositories {
-        maven {
-            credentials {
-                username 'civil'
-                password 'civil'
-            }
-            url 'http://af.hikvision.com.cn/artifactory/maven-down'
-        }
+
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016. HangZhou Hikvision System Technology Co.,Ltd. All Right Reserved.
+ *
  */
 package com.eziot.demo.utils;
 
