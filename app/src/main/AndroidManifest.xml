@@ -19,7 +19,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
     <!--蓝牙权限-->
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <!--让应用启动设备发现或操纵蓝牙设置-->
@@ -59,22 +60,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".smart.SmartMainActivity" />
-        <activity android:name=".wificonfig.fastap.TouchApActivity" />
-        <activity android:name=".user.UserMainActivity" />
-        <activity android:name=".user.UserInfoActivity" />
-        <activity android:name=".user.TerminalActivity" />
-        <activity android:name=".user.UserAccountActivity" />
-        <activity android:name=".device.DeviceMainActivity" />
-        <activity android:name=".family.FamilyMainActivity" />
-        <activity android:name=".family.GroupMainActivity" />
-        <activity android:name=".message.MessageActivity" />
-        <activity android:name=".wificonfig.WifiManagerActivity" />
-        <activity android:name=".wificonfig.line.LineActivity" />
-        <activity android:name=".ipc.IpcMainActivity" />
-        <activity android:name=".ipc.RealPlayActivity" />
-        <activity android:name=".ipc.PlaybackActivity" />
-        <activity android:name=".ble.BleMainActivity" />
         <activity android:name="com.eziot.demo.user.EZIoTLoginActivity" />
         <activity android:name="com.eziot.demo.user.EZIoTRegisterActivity" />
         <activity android:name="com.eziot.demo.user.EZIoTUserInfoActivity" />
@@ -107,6 +92,26 @@
         <activity android:name="com.eziot.demo.generalSetting.EZIoTMsgSwitchActivity"/>
         <activity android:name="com.eziot.demo.about.EZIoTAboutActivity"/>
         <activity android:name="com.eziot.demo.debug.CrashInfoActivity"/>
+        <activity android:name="com.eziot.demo.ble.EZIoTBleListActivity"/>
+        <activity android:name="com.eziot.demo.ble.EZIoTBleBaseActivity"/>
+        <activity android:name="com.eziot.demo.ble.EZIoTBleMainActivity"/>
+        <activity android:name="com.eziot.demo.ble.EZIoTBleWifiActivity"/>
+        <activity android:name="com.eziot.demo.ble.EZIoTBleUpdateActivity"/>
+        <activity android:name="com.eziot.demo.ble.EZIoTBleControlActivity"/>
+        <activity android:name="com.eziot.demo.about.EZIoTDebugActivity"/>
+        <activity android:name="com.eziot.demo.ble.EZIoTBleAutoMationActivity"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource"/>
+        </provider>
 
     </application>
 

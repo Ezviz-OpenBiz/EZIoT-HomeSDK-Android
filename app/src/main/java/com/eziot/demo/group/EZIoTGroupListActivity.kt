@@ -8,8 +8,8 @@ import com.eziot.demo.base.BaseActivity
 import com.eziot.demo.base.BaseResDataManager
 import com.eziot.demo.base.IntentContent
 import com.eziot.demo.group.adapter.EZIoTGroupListAdapter
-import com.eziot.family.EZIoTGroupManager
-import com.eziot.family.model.group.EZIoTGroupInfo
+import com.eziot.family.EZIoTRoomManager
+import com.eziot.family.model.group.EZIoTRoomInfo
 import com.eziot.iotsdkdemo.R
 import com.eziot.demo.utils.Utils
 import kotlinx.android.synthetic.main.eziot_family_list_activity.*
@@ -25,19 +25,27 @@ class EZIoTGroupListActivity : BaseActivity() {
 
     private fun initData(){
         showWaitDialog()
-        EZIoTGroupManager.getGroupList(BaseResDataManager.familyInfo!!.id,object : IEZIoTResultCallback<List<EZIoTGroupInfo>>{
-            override fun onSuccess(t: List<EZIoTGroupInfo>) {
-                dismissWaitDialog()
-                familyListRv.layoutManager = LinearLayoutManager(this@EZIoTGroupListActivity)
-                familyListRv.adapter = EZIoTGroupListAdapter(t,this@EZIoTGroupListActivity)
-            }
+        val roomListLocal = EZIoTRoomManager.getRoomListLocal(BaseResDataManager.familyInfo!!.id)
+        if(roomListLocal == null || roomListLocal.isEmpty()){
+            EZIoTRoomManager.getRoomList(BaseResDataManager.familyInfo!!.id,object : IEZIoTResultCallback<List<EZIoTRoomInfo>>{
+                override fun onSuccess(t: List<EZIoTRoomInfo>) {
+                    dismissWaitDialog()
+                    familyListRv.layoutManager = LinearLayoutManager(this@EZIoTGroupListActivity)
+                    familyListRv.adapter = EZIoTGroupListAdapter(t,this@EZIoTGroupListActivity)
+                }
 
-            override fun onError(errorCode: Int, errorDesc: String?) {
-                dismissWaitDialog()
-                Utils.showToast(this@EZIoTGroupListActivity,errorDesc)
-            }
+                override fun onError(errorCode: Int, errorDesc: String?) {
+                    dismissWaitDialog()
+                    Utils.showToast(this@EZIoTGroupListActivity,errorDesc)
+                }
 
-        })
+            })
+        } else {
+            dismissWaitDialog()
+            familyListRv.layoutManager = LinearLayoutManager(this@EZIoTGroupListActivity)
+            familyListRv.adapter = EZIoTGroupListAdapter(roomListLocal,this@EZIoTGroupListActivity)
+        }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -12,14 +12,14 @@ import com.eziot.demo.device.adapter.EZIoTDeviceFeatureAdapter
 import com.eziot.demo.device.callback.EZIoTRefreshDeviceListCallback
 import com.eziot.device.EZIoTDeviceControl
 import com.eziot.device.EZIoTDeviceManager
-import com.eziot.device.model.DeviceInfo
+import com.eziot.device.model.EZIoTDeviceInfo
 import com.eziot.iotsdkdemo.R
 import kotlinx.android.synthetic.main.eziot_device_detail_activity.*
 import kotlinx.android.synthetic.main.eziot_device_list_activity.toolbar
 
 class EZIoTDeviceDetailActivity : BaseActivity() , EZIoTRefreshDeviceListCallback {
 
-    private lateinit var deviceInfo : DeviceInfo
+    private lateinit var deviceInfo : EZIoTDeviceInfo
 
     private lateinit var ezIotDeviceControl : EZIoTDeviceControl
 
@@ -35,27 +35,30 @@ class EZIoTDeviceDetailActivity : BaseActivity() , EZIoTRefreshDeviceListCallbac
     private fun initData(){
         val deviceSerial = intent.getStringExtra(IntentContent.DEVICE_ID)
         val familyInfo = BaseResDataManager.familyInfo
-        ezIotDeviceControl = EZIoTDeviceManager.createDeviceInstance(
+        ezIotDeviceControl = EZIoTDeviceManager.getDeviceControl(
             familyInfo!!.id,
             deviceSerial!!
         )
         deviceInfo = ezIotDeviceControl.getLocalDevice()!!
+        val localIndex = ezIotDeviceControl.getLocalResources()[0].localIndex
         val featureModel = deviceInfo.featureModel
         deviceFeatureRv.layoutManager = LinearLayoutManager(this)
-        ezIoTDeviceFeatureAdapter = EZIoTDeviceFeatureAdapter(
-            featureModel!!.getAllFeatureItems("0"),
-            featureModel.getAllActionFeatureItems("0"),
-            "0",
-            deviceInfo,
-            this,
-            this
-        )
-        deviceFeatureRv.adapter = ezIoTDeviceFeatureAdapter
+        if(featureModel != null){
+            ezIoTDeviceFeatureAdapter = EZIoTDeviceFeatureAdapter(
+                featureModel!!.getAllFeatureItems(localIndex),
+                featureModel.getAllActionFeatureItems(localIndex),
+                localIndex,
+                deviceInfo,
+                this,
+                this
+            )
+            deviceFeatureRv.adapter = ezIoTDeviceFeatureAdapter
+        }
     }
 
     override fun onLocalRefreshCallback() {
         val familyInfo = BaseResDataManager.familyInfo
-        val ezIotDevice = EZIoTDeviceManager.createDeviceInstance(
+        val ezIotDevice = EZIoTDeviceManager.getDeviceControl(
             familyInfo!!.id,
             deviceInfo.deviceSerial
         )

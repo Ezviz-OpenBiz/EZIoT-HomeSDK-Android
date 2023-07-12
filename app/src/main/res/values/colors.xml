@@ -12,6 +12,9 @@
     <color name="black_positive">#050505</color>
     <color name="gray_positive">#ABABAB</color>
 
+    <color name="timebar_start_color">#FF8F42</color>
+    <color name="timebar_end_color">#FFBE59</color>
+    <color name="timebar_color">#4C80F7</color>
 
     <color name="brand_color">#FF4C80F7</color>
     <color name="brand_color_a60">@color/a60</color>

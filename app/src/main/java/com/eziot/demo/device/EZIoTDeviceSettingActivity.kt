@@ -4,21 +4,26 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.eziot.common.http.callback.IEZIoTResultCallback
 import com.eziot.common.http.callback.IResultCallback
 import com.eziot.demo.EZIoTMainTabActivity
 import com.eziot.demo.base.BaseActivity
 import com.eziot.demo.base.IntentContent
 import com.eziot.demo.device.update.EZIoTDeviceUpdateInfoActivity
+//import com.eziot.demo.ipc.play.EZIoTRealPlayActivity
+//import com.eziot.demo.ipc.playback.EZIoTCloudPlaybackActivity
+//import com.eziot.demo.ipc.playback.EZIoTLocalPlaybackActivity
 import com.eziot.device.EZIoTDeviceControl
 import com.eziot.device.EZIoTDeviceManager
-import com.eziot.device.model.DeviceInfo
+import com.eziot.device.model.EZIoTDeviceInfo
 import com.eziot.iotsdkdemo.R
 import com.eziot.demo.utils.Utils
 import kotlinx.android.synthetic.main.eziot_device_setting_activity.*
+import org.json.JSONObject
 
 class EZIoTDeviceSettingActivity : BaseActivity() {
 
-    private lateinit var deviceInfo : DeviceInfo
+    private lateinit var deviceInfo : EZIoTDeviceInfo
 
     private lateinit var deviceSerial : String
 
@@ -38,7 +43,7 @@ class EZIoTDeviceSettingActivity : BaseActivity() {
 
     private fun initData(){
         deviceSerial = intent.getStringExtra(IntentContent.DEVICE_ID)!!
-        ezIoTDeviceControl = EZIoTDeviceManager.createDeviceInstance(getCurrentFamilyInfo()!!.id,deviceSerial)
+        ezIoTDeviceControl = EZIoTDeviceManager.getDeviceControl(getCurrentFamilyInfo()!!.id,deviceSerial)
         deviceInfo = ezIoTDeviceControl.getLocalDevice()!!
     }
 
@@ -59,6 +64,11 @@ class EZIoTDeviceSettingActivity : BaseActivity() {
         } else {
             deviceNameIv.visibility = View.VISIBLE
             resourceNameIv.visibility = View.VISIBLE
+        }
+        if(resource.isCamera == 1){
+            ipcLayout.visibility = View.VISIBLE
+        } else {
+            ipcLayout.visibility = View.GONE
         }
     }
 
@@ -108,5 +118,60 @@ class EZIoTDeviceSettingActivity : BaseActivity() {
         intent.putExtra(IntentContent.RESOURCE_NAME, ezIoTDeviceControl.getLocalResources()[0].name)
         startActivity(intent)
     }
+
+    fun onClickPreview(view : View){
+//        val  intent = Intent(this, EZIoTRealPlayActivity::class.java)
+//        intent.putExtra(IntentContent.DEVICE_ID,deviceSerial)
+//        startActivity(intent)
+    }
+
+    fun onClickLocalPlayback(view : View){
+
+        val deviceInfo =
+            EZIoTDeviceManager.getDeviceControl(getCurrentFamilyInfo()!!.id, deviceSerial)
+
+        val localIndex = deviceInfo.getLocalResources()[0].localIndex
+
+        val resourceIdentifier = deviceInfo.getLocalResources()[0].resourceIdentifier
+
+        val featureModel = deviceInfo.getLocalDevice()!!.featureModel
+
+//        if(featureModel != null){
+//            val actionFeature = deviceInfo.getLocalDevice()!!
+//                .getActionFeature(resourceIdentifier, localIndex, "HDD", "GetHDDList")
+//            deviceInfo.setActionFeature(actionFeature, null, object : IEZIoTResultCallback<String> {
+//                override fun onSuccess(t: String) {
+//                    val json = JSONObject(t)
+//                    val jsonArray = json.optJSONArray("HDDList")
+//                    if (jsonArray != null && jsonArray.length() > 0) {
+//                        val intent = Intent(this@EZIoTDeviceSettingActivity, EZIoTLocalPlaybackActivity::class.java)
+//                        intent.putExtra(IntentContent.DEVICE_ID, deviceSerial)
+//                        startActivity(intent)
+//                    } else {
+//                        Utils.showToast(this@EZIoTDeviceSettingActivity,"没有sd卡")
+//                    }
+//                }
+//
+//                override fun onError(errorCode: Int, errorDesc: String?) {
+//                    val intent = Intent(this@EZIoTDeviceSettingActivity, EZIoTLocalPlaybackActivity::class.java)
+//                    intent.putExtra(IntentContent.DEVICE_ID, deviceSerial)
+//                    startActivity(intent)
+//                }
+//
+//            })
+//        } else {
+//            val intent = Intent(this@EZIoTDeviceSettingActivity, EZIoTLocalPlaybackActivity::class.java)
+//            intent.putExtra(IntentContent.DEVICE_ID, deviceSerial)
+//            startActivity(intent)
+//        }
+
+    }
+
+    fun onClickCloudPlayback(view : View){
+//        val intent = Intent(this, EZIoTCloudPlaybackActivity::class.java)
+//        intent.putExtra(IntentContent.DEVICE_ID,deviceSerial)
+//        startActivity(intent)
+    }
+
 
 }

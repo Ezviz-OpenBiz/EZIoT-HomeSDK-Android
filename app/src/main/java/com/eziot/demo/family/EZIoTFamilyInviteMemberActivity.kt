@@ -28,7 +28,7 @@ class EZIoTFamilyInviteMemberActivity : BaseActivity() {
     fun onClickAddFamilyMember(view : View){
         val account = accountEt.text.toString()
         showWaitDialog()
-        EZIotFamilyManager.inviteFamilyMember(familyId,account,object : IResultCallback{
+        EZIotFamilyManager.inviteFamilyMember(familyId,86,account,object : IResultCallback{
             override fun onSuccess() {
                 Utils.showToast(this@EZIoTFamilyInviteMemberActivity,R.string.inviteSuccess)
                 dismissWaitDialog()

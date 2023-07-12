@@ -66,6 +66,7 @@
             android:onClick="onClickSmart"
             android:orientation="vertical"
             android:gravity="center"
+            android:visibility="gone"
             android:layout_height="match_parent">
 
             <ImageView

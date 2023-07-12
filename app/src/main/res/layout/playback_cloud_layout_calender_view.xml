@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/cloud_calender_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="7dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/common_select_date"
+            android:textColor="@color/primary_label_color"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/playview_icon_close_nor" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_pre_page"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/playback_icon_date_left" />
+
+        <TextView
+            android:id="@+id/tv_selected_year_and_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textColor="@color/primary_label_color"
+            android:textSize="16sp"
+            tools:text="2019-09" />
+
+        <ImageView
+            android:id="@+id/iv_next_page"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/playback_icon_date_right" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/message_messageListPage_Sunday"
+            android:textColor="@color/primary_label_color"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/message_messageListPage_Monday"
+            android:textColor="@color/primary_label_color"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/message_messageListPage_Tuesday"
+            android:textColor="@color/primary_label_color"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/message_messageListPage_Wednesday"
+            android:textColor="@color/primary_label_color"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/message_messageListPage_Thursday"
+            android:textColor="@color/primary_label_color"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/message_messageListPage_Friday"
+            android:textColor="@color/primary_label_color"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/message_messageListPage_Saturday"
+            android:textColor="@color/primary_label_color"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <com.eziot.demo.widget.calendar.WrapContentViewPager
+        android:id="@+id/vp_month"
+        android:layout_width="match_parent"
+        android:layout_height="260dp" />
+
+</LinearLayout>

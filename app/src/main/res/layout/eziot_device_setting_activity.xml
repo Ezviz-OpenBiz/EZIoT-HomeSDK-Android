@@ -117,6 +117,98 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ipcLayout"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/deviceUpdateLayout"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:id="@+id/previewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="onClickPreview"
+            app:layout_constraintTop_toBottomOf="@+id/resourceNameLayout">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text="@string/preview" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/common2_icon_arrowgrey" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/localPlaybackLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="onClickLocalPlayback"
+            app:layout_constraintTop_toBottomOf="@+id/previewLayout">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text="@string/local_playback" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/common2_icon_arrowgrey" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/cloudPlaybackLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="onClickCloudPlayback"
+            app:layout_constraintTop_toBottomOf="@+id/localPlaybackLayout">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text="@string/cloud_playback" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/common2_icon_arrowgrey" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
     <Button
         android:id="@+id/deleteDeviceBtn"
         android:layout_width="match_parent"
@@ -128,6 +220,6 @@
         android:text="@string/deleteDevice"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deviceUpdateLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/ipcLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,22 +24,31 @@ class EZIoTFamilySelectActivity : BaseActivity() {
 
     private fun initData(){
         showWaitDialog()
-        EZIotFamilyManager.getExtFamilyList(object : IEZIoTResultCallback<EZIoTFamilyInfoResp> {
-            override fun onSuccess(t: EZIoTFamilyInfoResp) {
-                dismissWaitDialog()
-                val familyList = ArrayList<EZIoTFamilyInfo>()
-                familyList.addAll(t.ownFamilyInfos)
-                familyList.addAll(t.joinFamilyInfos)
-                familyListRv.layoutManager = LinearLayoutManager(this@EZIoTFamilySelectActivity)
-                familyListRv.adapter = EZIoTFamilySelectAdapter(familyList)
-            }
+        val extFamilyListLocal = EZIotFamilyManager.getFamilyListLocal()
+        if(extFamilyListLocal == null || extFamilyListLocal.isEmpty()){
+            EZIotFamilyManager.getFamilyList(object : IEZIoTResultCallback<List<EZIoTFamilyInfo>> {
 
-            override fun onError(errorCode: Int, errorDesc: String?) {
-                dismissWaitDialog()
-                Utils.showToast(this@EZIoTFamilySelectActivity,errorDesc)
-            }
+                override fun onError(errorCode: Int, errorDesc: String?) {
+                    dismissWaitDialog()
+                    Utils.showToast(this@EZIoTFamilySelectActivity,errorDesc)
+                }
 
-        })
+                override fun onSuccess(t: List<EZIoTFamilyInfo>) {
+                    dismissWaitDialog()
+                    val familyList = ArrayList<EZIoTFamilyInfo>()
+                    familyList.addAll(t)
+                    familyListRv.layoutManager = LinearLayoutManager(this@EZIoTFamilySelectActivity)
+                    familyListRv.adapter = EZIoTFamilySelectAdapter(familyList)
+                }
+
+            })
+        } else {
+            dismissWaitDialog()
+            val familyList = ArrayList<EZIoTFamilyInfo>()
+            familyList.addAll(extFamilyListLocal)
+            familyListRv.layoutManager = LinearLayoutManager(this@EZIoTFamilySelectActivity)
+            familyListRv.adapter = EZIoTFamilySelectAdapter(familyList)
+        }
     }
 
 }

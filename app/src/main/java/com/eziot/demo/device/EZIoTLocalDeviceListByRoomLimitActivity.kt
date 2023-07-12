@@ -16,7 +16,7 @@ class EZIoTLocalDeviceListByRoomLimitActivity : BaseActivity() {
 
     private var offset = 0
 
-    private var limit = 3
+    private var limit = 20
 
     private lateinit var adapter : EZIoTDeviceListAdapter
 
@@ -29,7 +29,7 @@ class EZIoTLocalDeviceListByRoomLimitActivity : BaseActivity() {
 
     private fun initData(){
         val familyId = BaseResDataManager.familyInfo!!.id
-        val groupId = BaseResDataManager.groupInfo!!.id
+        val groupId = BaseResDataManager.roomInfo!!.id
         val getDeviceListResp = EZIoTDeviceManager.getLocalDeviceList(familyId,groupId,limit,offset)
         offset = getDeviceListResp.deviceInfos.size
         deviceListPullRv.setLoadingLayoutCreator(object : PullToRefreshBase.LoadingLayoutCreator() {
@@ -55,7 +55,7 @@ class EZIoTLocalDeviceListByRoomLimitActivity : BaseActivity() {
             }
             offset += getDeviceListResp.deviceInfos.size
             deviceListPullRv.onRefreshComplete()
-            deviceListPullRv.setFooterRefreshEnabled(getDeviceListResp.isHasNext)
+            deviceListPullRv.setFooterRefreshEnabled(getDeviceListResp.hasNext())
         }
         deviceListPullRv.mode = IPullToRefresh.Mode.BOTH
         deviceListPullRv.setFooterRefreshEnabled(true)

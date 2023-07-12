@@ -47,22 +47,22 @@ public class PullToLoadView extends LoadingViewBase {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        final int widthMode = View.MeasureSpec.getMode(widthMeasureSpec);
-        final int heightMode = View.MeasureSpec.getMode(heightMeasureSpec);
-        int widthSize = View.MeasureSpec.getSize(widthMeasureSpec);
-        int heightSize = View.MeasureSpec.getSize(heightMeasureSpec);
+        final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        final int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
         int minSize = mSquareTrackLength + mBallSize * 2;
 
         switch (widthMode) {
-            case View.MeasureSpec.AT_MOST:
+            case MeasureSpec.AT_MOST:
                 widthSize = minSize;
                 break;
 
-            case View.MeasureSpec.UNSPECIFIED:
+            case MeasureSpec.UNSPECIFIED:
                 widthSize = minSize;
                 break;
 
-            case View.MeasureSpec.EXACTLY:
+            case MeasureSpec.EXACTLY:
                 widthSize = Math.max(widthSize, minSize);
                 break;
 
@@ -71,15 +71,15 @@ public class PullToLoadView extends LoadingViewBase {
         }
 
         switch (heightMode) {
-            case View.MeasureSpec.AT_MOST:
+            case MeasureSpec.AT_MOST:
                 heightSize = minSize;
                 break;
 
-            case View.MeasureSpec.UNSPECIFIED:
+            case MeasureSpec.UNSPECIFIED:
                 heightSize = minSize;
                 break;
 
-            case View.MeasureSpec.EXACTLY:
+            case MeasureSpec.EXACTLY:
                 heightSize = Math.max(heightSize, minSize);
                 break;
 
@@ -87,8 +87,8 @@ public class PullToLoadView extends LoadingViewBase {
                 break;
         }
 
-        super.onMeasure(View.MeasureSpec.makeMeasureSpec(widthSize, widthMode),
-                View.MeasureSpec.makeMeasureSpec(heightSize, heightMode));
+        super.onMeasure(MeasureSpec.makeMeasureSpec(widthSize, widthMode),
+                MeasureSpec.makeMeasureSpec(heightSize, heightMode));
         mCenterX = getMeasuredWidth() / 2;
         mCenterY = getMeasuredHeight() / 2;
     }

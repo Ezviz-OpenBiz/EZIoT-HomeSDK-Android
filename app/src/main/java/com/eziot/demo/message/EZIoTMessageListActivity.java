@@ -9,10 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.eziot.common.http.callback.IEZIoTResultCallback;
+import com.eziot.demo.base.BaseResDataManager;
 import com.eziot.demo.message.adapter.EZIoTMessageListAdapter;
 import com.eziot.demo.message.adapter.EZIoTMessageTypeListAdapter;
 import com.eziot.iotsdkdemo.R;
 import com.eziot.message.EZIoTMessageManager;
+import com.eziot.message.model.EZIoTGetMsgCategoriesResp;
 import com.eziot.message.model.EZIoTMsgCategoryInfo;
 
 import org.jetbrains.annotations.Nullable;
@@ -38,19 +40,28 @@ public class EZIoTMessageListActivity extends AppCompatActivity implements View.
     }
 
     private void initData(){
-        EZIoTMessageManager.INSTANCE.getMessageCategories(new IEZIoTResultCallback<List<EZIoTMsgCategoryInfo>>(){
-            @Override
-            public void onError(int errorCode, @Nullable String errorDesc) {
+        List<EZIoTMsgCategoryInfo> messageCategoriesLocal = EZIoTMessageManager.INSTANCE.getMessageCategoriesLocal();
+        if(messageCategoriesLocal != null && messageCategoriesLocal.size() > 0){
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(EZIoTMessageListActivity.this);
+            EZIoTMessageListAdapter adapter = new EZIoTMessageListAdapter(EZIoTMessageListActivity.this, messageCategoriesLocal);
+            mRecyclerView.setLayoutManager(linearLayoutManager);
+            mRecyclerView.setAdapter(adapter);
+        } else {
+            EZIoTMessageManager.INSTANCE.getMessageCategories(new IEZIoTResultCallback<EZIoTGetMsgCategoriesResp>(){
+                @Override
+                public void onError(int errorCode, @Nullable String errorDesc) {
 
-            }
-            @Override
-            public void onSuccess(List<EZIoTMsgCategoryInfo> ezIoTMsgCategoryInfos) {
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(EZIoTMessageListActivity.this);
-                EZIoTMessageListAdapter adapter = new EZIoTMessageListAdapter(EZIoTMessageListActivity.this, ezIoTMsgCategoryInfos);
-                mRecyclerView.setLayoutManager(linearLayoutManager);
-                mRecyclerView.setAdapter(adapter);
-            }
-        });
+                }
+
+                @Override
+                public void onSuccess(EZIoTGetMsgCategoriesResp ezIoTGetMsgCategoriesResp) {
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(EZIoTMessageListActivity.this);
+                    EZIoTMessageListAdapter adapter = new EZIoTMessageListAdapter(EZIoTMessageListActivity.this, ezIoTGetMsgCategoriesResp.card);
+                    mRecyclerView.setLayoutManager(linearLayoutManager);
+                    mRecyclerView.setAdapter(adapter);
+                }
+            });
+        }
     }
 
     @Override

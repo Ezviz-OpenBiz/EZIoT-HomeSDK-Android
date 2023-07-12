@@ -4,10 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/workspace-you/iot-sdk/demo-github/Android-Demo/EZIoT-HomeSDK-Android/app/src/main/res/layout/wait_dialog.xml" value="0.271875" />
+        <entry key="..\:/workspace-you/iot-sdk/github/EZIoT-HomeSDK-Android/app/src/main/res/drawable/bg_edit_text.xml" value="0.1" />
+        <entry key="..\:/workspace-you/iot-sdk/github/EZIoT-HomeSDK-Android/app/src/main/res/layout/eziot_debug_activity.xml" value="0.25" />
+        <entry key="..\:/workspace-you/iot-sdk/github/EZIoT-HomeSDK-Android/app/src/main/res/layout/playback_cloud_item_month_day.xml" value="0.1" />
+        <entry key="..\:/workspace-you/iot-sdk/github/EZIoT-HomeSDK-Android/app/src/main/res/layout/playback_cloud_layout_calender_view.xml" value="0.29257246376811596" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

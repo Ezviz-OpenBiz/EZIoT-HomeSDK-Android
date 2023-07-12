@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.eziot.common.utils.GlobalVariable
 import com.eziot.family.model.family.EZIoTFamilyInfo
-import com.eziot.family.model.group.EZIoTGroupInfo
+import com.eziot.family.model.group.EZIoTRoomInfo
 import com.eziot.demo.widge.WaitDialog
 
 open class BaseActivity : AppCompatActivity() {
@@ -19,15 +19,16 @@ open class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-        waitDialog = WaitDialog(this, R.style.Theme_Translucent_NoTitleBar)
+        waitDialog = WaitDialog(this, R.style.Theme)
+
     }
 
     public fun showWaitDialog(){
-        waitDialog!!.show()
+//        waitDialog!!.show()
     }
 
     public fun dismissWaitDialog(){
-        waitDialog!!.dismiss()
+//        waitDialog!!.dismiss()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -48,8 +49,8 @@ open class BaseActivity : AppCompatActivity() {
         return BaseResDataManager.familyInfo
     }
 
-    fun getCurrentGroupInfo() :  EZIoTGroupInfo? {
-        return BaseResDataManager.groupInfo
+    fun getCurrentGroupInfo() :  EZIoTRoomInfo? {
+        return BaseResDataManager.roomInfo
     }
 
     fun isHomeFamily() : Boolean{

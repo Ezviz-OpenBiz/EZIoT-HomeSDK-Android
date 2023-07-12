@@ -20,7 +20,7 @@ import com.eziot.common.http.callback.IResultCallback
 import com.eziot.demo.base.BaseResDataManager
 import com.eziot.demo.device.callback.EZIoTRefreshDeviceListCallback
 import com.eziot.device.EZIoTDeviceManager
-import com.eziot.device.model.DeviceInfo
+import com.eziot.device.model.EZIoTDeviceInfo
 import com.eziot.device.model.FeatureModel
 import com.eziot.iotsdkdemo.R
 import com.eziot.demo.utils.Utils
@@ -31,7 +31,7 @@ class EZIoTDeviceFeatureAdapter(
     private val featureItems: MutableList<FeatureModel.FeatureItem>,
     private val actionItems: MutableList<FeatureModel.ActionItem>,
     private val localIndex: String,
-    private val deviceInfo: DeviceInfo,
+    private val deviceInfo: EZIoTDeviceInfo,
     private val context: Context,
     private val ezIoTRefreshDeviceListCallback: EZIoTRefreshDeviceListCallback
 ) : RecyclerView.Adapter<EZIoTDeviceFeatureAdapter.EZIoTDeviceFeatureViewHolder>() {
@@ -155,12 +155,12 @@ class EZIoTDeviceFeatureAdapter(
         checkBox.buttonDrawable = null
         checkBox.setBackgroundResource(R.drawable.common_check2_selector)
         holder.featureViewLayout.addView(checkBox)
-        if(featureItem.dataValue != null){
+        if(featureItem.dataValue != null && featureItem.dataValue is Boolean){
             checkBox.isChecked = featureItem.dataValue as Boolean
         }
         checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
             val familyInfo = BaseResDataManager.familyInfo
-            val ezIotDevice = EZIoTDeviceManager.createDeviceInstance(
+            val ezIotDevice = EZIoTDeviceManager.getDeviceControl(
                 familyInfo!!.id,
                 deviceInfo.deviceSerial
             )
@@ -383,7 +383,7 @@ class EZIoTDeviceFeatureAdapter(
     private fun setDeviceFeatureProp(featureItem: FeatureModel.FeatureItem , value : Any , delayDismiss : Boolean){
         Utils.showWaitDialog(context)
         val familyInfo = BaseResDataManager.familyInfo
-        val ezIotDevice = EZIoTDeviceManager.createDeviceInstance(
+        val ezIotDevice = EZIoTDeviceManager.getDeviceControl(
             familyInfo!!.id,
             deviceInfo.deviceSerial
         )
@@ -429,7 +429,7 @@ class EZIoTDeviceFeatureAdapter(
 
     private fun setDeviceActionProp(actionItem: FeatureModel.ActionItem , value : Any?){
         val familyInfo = BaseResDataManager.familyInfo
-        val ezIotDevice = EZIoTDeviceManager.createDeviceInstance(
+        val ezIotDevice = EZIoTDeviceManager.getDeviceControl(
             familyInfo!!.id,
             deviceInfo.deviceSerial
         )

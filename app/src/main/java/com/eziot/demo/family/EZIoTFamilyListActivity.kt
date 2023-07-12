@@ -25,22 +25,32 @@ class EZIoTFamilyListActivity : BaseActivity() {
 
     private fun initData(){
         showWaitDialog()
-        EZIotFamilyManager.getExtFamilyList(object : IEZIoTResultCallback<EZIoTFamilyInfoResp> {
-            override fun onSuccess(t: EZIoTFamilyInfoResp) {
-                dismissWaitDialog()
-                familyListRv.layoutManager = LinearLayoutManager(this@EZIoTFamilyListActivity)
-                familyListRv.adapter = EZIoTFamilyListAdapter(t.ownFamilyInfos,this@EZIoTFamilyListActivity)
+        val extFamilyListLocal = EZIotFamilyManager.getExtFamilyListLocal()
+        if(extFamilyListLocal.joinFamilyInfos.isEmpty() && extFamilyListLocal.ownFamilyInfos.isEmpty()){
+            EZIotFamilyManager.getExtFamilyList(object : IEZIoTResultCallback<EZIoTFamilyInfoResp> {
+                override fun onSuccess(t: EZIoTFamilyInfoResp) {
+                    dismissWaitDialog()
+                    familyListRv.layoutManager = LinearLayoutManager(this@EZIoTFamilyListActivity)
+                    familyListRv.adapter = EZIoTFamilyListAdapter(t.ownFamilyInfos,this@EZIoTFamilyListActivity)
 
-                joinFamilyListRv.layoutManager = LinearLayoutManager(this@EZIoTFamilyListActivity)
-                joinFamilyListRv.adapter = EZIoTFamilyListAdapter(t.joinFamilyInfos,this@EZIoTFamilyListActivity)
-            }
+                    joinFamilyListRv.layoutManager = LinearLayoutManager(this@EZIoTFamilyListActivity)
+                    joinFamilyListRv.adapter = EZIoTFamilyListAdapter(t.joinFamilyInfos,this@EZIoTFamilyListActivity)
+                }
 
-            override fun onError(errorCode: Int, errorDesc: String?) {
-                dismissWaitDialog()
-                Utils.showToast(this@EZIoTFamilyListActivity,errorDesc)
-            }
+                override fun onError(errorCode: Int, errorDesc: String?) {
+                    dismissWaitDialog()
+                    Utils.showToast(this@EZIoTFamilyListActivity,errorDesc)
+                }
 
-        })
+            })
+        } else {
+            dismissWaitDialog()
+            familyListRv.layoutManager = LinearLayoutManager(this@EZIoTFamilyListActivity)
+            familyListRv.adapter = EZIoTFamilyListAdapter(extFamilyListLocal.ownFamilyInfos,this@EZIoTFamilyListActivity)
+
+            joinFamilyListRv.layoutManager = LinearLayoutManager(this@EZIoTFamilyListActivity)
+            joinFamilyListRv.adapter = EZIoTFamilyListAdapter(extFamilyListLocal.joinFamilyInfos,this@EZIoTFamilyListActivity)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

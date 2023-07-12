@@ -9,6 +9,7 @@ import com.eziot.demo.base.BaseActivity
 import com.eziot.demo.utils.CommonUtils
 import com.eziot.iotsdkdemo.R
 import com.eziot.user.EZIotUserManager
+import com.eziot.user.client.EZIotAuthType
 import com.eziot.user.model.account.EZIoTUserBizType
 import com.eziot.user.model.area.EZIotUserAreaInfo
 import com.eziot.user.model.user.EZIoTUserSessionInfo
@@ -34,6 +35,7 @@ class EZIoTRegisterActivity : BaseActivity() {
             userName,
             countryCode.toInt(),
             EZIoTUserBizType.USER_REGISTRATION,
+            null,null,
             object : IResultCallback {
                 override fun onSuccess() {
                     CommonUtils.showToast(this@EZIoTRegisterActivity,resources.getString(R.string.getVerCodeSuccess))

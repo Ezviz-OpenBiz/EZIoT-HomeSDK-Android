@@ -174,5 +174,45 @@
     <string name="about">关于</string>
     <string name="version_name">版本号</string>
     <string name="family_home_operate">只有房间主人才有权限操作</string>
+    <string name="preview">预览</string>
+    <string name="local_playback">本地回放</string>
+    <string name="cloud_playback">云存储回放</string>
+    <string name="message_messageListPage_Sunday">"周日"</string>
+    <string name="message_messageListPage_Monday">"周一"</string>
+    <string name="message_messageListPage_Tuesday">"周二"</string>
+    <string name="message_messageListPage_Wednesday">"周三"</string>
+    <string name="message_messageListPage_Thursday">"周四"</string>
+    <string name="message_messageListPage_Friday">"周五"</string>
+    <string name="message_messageListPage_Saturday">"周六"</string>
+    <string name="message_messageListPage_Today">"今天"</string>
+    <string name="common_select_date">Select date"</string>
+    <string name="cloud_calender_today">T</string>
+    <string name="yulan">T</string>
+    <string name="debug">配置页面</string>
+    <string name="ble_device_list">蓝牙设备列表</string>
+    <string name="ble_device_control">设备控制</string>
+    <string name="connect">连接</string>
+    <string name="ble_device_base">设备基本操作</string>
+    <string name="ble_device_otap">物模型控制</string>
+    <string name="ble_device_ota">升级</string>
+    <string name="ble_device_config_wifi">配网</string>
+    <string name="ble_device_start_config_wifi">开始配网</string>
+    <string name="ble_device_wifi_name_hint">请输入wifi名称</string>
+    <string name="ble_device_wifi_pwd_hint">请输入wifi密码</string>
+    <string name="ble_device_start_device_upgrade">开始设备升级</string>
+    <string name="ble_device_start_sub_device_upgrade">开始设备子模块升级</string>
+    <string name="ble_device_resourceIdentifier_sid_hint">请输入resourceId 的sid</string>
+    <string name="ble_device_domain_sid_hint">请输入domain的sid</string>
+    <string name="ble_device_identifier_sid_hint">请输入identifier的sid</string>
+    <string name="ble_device_localindex_sid_hint">请输入localIndex</string>
+    <string name="ble_device_prop">属性下发</string>
+    <string name="ble_device_operate">操作下发</string>
+    <string name="ble_device_prop_get">属性获取</string>
+    <string name="ble_device_prop_value">请求值</string>
+    <string name="automation_test">自动化测试</string>
+    <string name="ble_device_get_wifilist">拉取wifi列表</string>
+    <string name="ble_device_debug">蓝牙调试</string>
+    <string name="skip_rope_debug">跳绳功能调试</string>
+
 
 </resources>

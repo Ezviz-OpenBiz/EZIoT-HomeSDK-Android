@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="获取某pid列表"
+        android:onClick="onGetDeviceListByPidClick"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="创建群组"
+        android:onClick="onCreateGroupClick"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="解散群组"
+        android:onClick="onDeleteGroupClick"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="获取群组下的设备信息"
+        android:onClick="onGetGroupInfoClick"
+        android:layout_height="wrap_content"/>
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="修改群组下的设备"
+        android:onClick="onChangeGroupDeviceClick"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="修改群组名称"
+        android:onClick="onChangeGroupNameClick"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="修改群组位置"
+        android:onClick="onChangeGroupPositionClick"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

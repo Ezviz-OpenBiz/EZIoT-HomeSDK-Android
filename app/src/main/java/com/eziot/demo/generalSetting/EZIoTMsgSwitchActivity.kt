@@ -5,10 +5,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.eziot.common.http.callback.IEZIoTResultCallback
 import com.eziot.common.http.callback.IResultCallback
 import com.eziot.demo.base.BaseActivity
+import com.eziot.demo.base.BaseResDataManager
 import com.eziot.demo.generalSetting.adapter.EZIoTMsgSwitchAdapter
 import com.eziot.iotsdkdemo.R
 import com.eziot.demo.utils.Utils
 import com.eziot.message.EZIoTMessageManager
+import com.eziot.message.model.EZIoTGetMsgCategoriesResp
 import com.eziot.message.model.EZIoTMsgCategoryInfo
 import kotlinx.android.synthetic.main.eziot_msg_switch_activity.*
 import kotlinx.android.synthetic.main.eziot_msg_switch_adapter.*
@@ -30,9 +32,9 @@ class EZIoTMsgSwitchActivity : BaseActivity() {
 
     private fun initData(){
         showWaitDialog()
-        EZIoTMessageManager.getMessageCategories(object : IEZIoTResultCallback<List<EZIoTMsgCategoryInfo>>{
-            override fun onSuccess(ezIoTMsgCategoryInfos : List<EZIoTMsgCategoryInfo>) {
-                this@EZIoTMsgSwitchActivity.ezIoTMsgCategoryInfos = ezIoTMsgCategoryInfos
+        EZIoTMessageManager.getMessageCategories(object : IEZIoTResultCallback<EZIoTGetMsgCategoriesResp>{
+            override fun onSuccess(ezIoTGetMsgCategoriesResp : EZIoTGetMsgCategoriesResp) {
+                this@EZIoTMsgSwitchActivity.ezIoTMsgCategoryInfos = ezIoTGetMsgCategoriesResp.card
                 var calculateTypeColumn = 0;
                 ezIoTMsgCategoryInfos.forEach {
                     EZIoTMessageManager.getMessageNodisturbingStatus(it.type,object : IEZIoTResultCallback<Boolean>{

@@ -62,7 +62,7 @@ class EZIoTInputNewAccountActivity : AppCompatActivity() {
 
     private fun sendVerifyCodeWithNewAccount(){
         EZIotUserManager.getSMSCode(accountName!!, countryCode.toInt(),
-            BaseResDataManager.newBizType!!, object: IResultCallback {
+            BaseResDataManager.newBizType!!, null, null, object: IResultCallback {
                 override fun onSuccess() {
                     if(operationType == 1){
                         BaseResDataManager.mEZIoTUserContactModifyParam?.theNewPhone = accountName

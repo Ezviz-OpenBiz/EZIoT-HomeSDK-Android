@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <com.eziot.demo.widget.calendar.CloudCalenderView
+        android:id="@+id/calender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
+
+</FrameLayout>

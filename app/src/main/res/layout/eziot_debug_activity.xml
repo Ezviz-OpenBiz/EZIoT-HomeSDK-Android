@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="@string/debug" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/appIdTv"
+        android:layout_width="wrap_content"
+        android:text="当前AppId:"
+        android:layout_height="wrap_content"/>
+
+
+    <EditText
+        android:id="@+id/appIdEt"
+        android:layout_width="match_parent"
+        android:hint="请输入AppId"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/appIdBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onAppIdChangeClick"
+        android:text="点击生效"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/apiDomainTv"
+        android:layout_width="wrap_content"
+        android:text="当前平台地址："
+        android:layout_height="wrap_content"/>
+
+
+    <EditText
+        android:id="@+id/apiDomainEt"
+        android:layout_width="match_parent"
+        android:hint="请输入平台地址"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/apiDomainBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onApiDomainClick"
+        android:text="点击生效"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/black"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="基线AppId:"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/copyBaseAppIdBtn"
+            android:layout_width="wrap_content"
+            android:text="点击复制"
+            android:onClick="copyBaseAppIdClick"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="测试平台地址：test15.ys7.com"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/copyTest15ApiBtn"
+            android:layout_width="wrap_content"
+            android:text="点击复制"
+            android:onClick="copyTest15ApiClick"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="线上平台地址：api.eziot.com"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/copyLineApiBtn"
+            android:layout_width="wrap_content"
+            android:text="点击复制"
+            android:onClick="copyLineApiClick"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>

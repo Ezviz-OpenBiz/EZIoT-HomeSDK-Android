@@ -44,11 +44,13 @@ class EZIoTMineFragment : Fragment(), View.OnClickListener{
         view.findViewById<ViewGroup>(R.id.view_click_message_center).setOnClickListener(this)
         view.findViewById<Button>(R.id.logoutBtn).setOnClickListener(this)
         view.findViewById<ViewGroup>(R.id.view_click_about).setOnClickListener(this)
+        view.findViewById<View>(R.id.view_click_debug).setOnClickListener(this)
 
-        mUserName = view.findViewById<TextView>(R.id.user_tv_nickname)
+        mUserName = view.findViewById(R.id.user_tv_nickname)
         initData()
 
         mUserName?.setOnClickListener(this)
+
 
     }
 
@@ -62,6 +64,17 @@ class EZIoTMineFragment : Fragment(), View.OnClickListener{
 
             override fun onError(errorCode: Int, errorDesc: String?) {
                 Utils.showToast(activity,errorDesc)
+            }
+
+        })
+
+        EZIotFamilyManager.getFamilyList(object : IEZIoTResultCallback<List<EZIoTFamilyInfo>>{
+            override fun onSuccess(t: List<EZIoTFamilyInfo>) {
+
+            }
+
+            override fun onError(errorCode: Int, errorDesc: String?) {
+
             }
 
         })
@@ -93,7 +106,7 @@ class EZIoTMineFragment : Fragment(), View.OnClickListener{
             R.id.logoutBtn -> {
                 EZIotUserManager.logout(object : IResultCallback{
                     override fun onSuccess() {
-                        BaseResDataManager.groupInfo = null
+                        BaseResDataManager.roomInfo = null
                         BaseResDataManager.familyInfo = null
                         val intent = Intent(activity!!,EZIoTGuideActivity::class.java)
                         startActivity(intent)
@@ -101,7 +114,7 @@ class EZIoTMineFragment : Fragment(), View.OnClickListener{
                     }
 
                     override fun onError(errorCode: Int, errorDesc: String?) {
-                        BaseResDataManager.groupInfo = null
+                        BaseResDataManager.roomInfo = null
                         BaseResDataManager.familyInfo = null
                         val intent = Intent(activity!!,EZIoTGuideActivity::class.java)
                         startActivity(intent)
@@ -111,6 +124,10 @@ class EZIoTMineFragment : Fragment(), View.OnClickListener{
                 })
             }
             R.id.view_click_about -> {
+                val intent = Intent(activity,EZIoTAboutActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.view_click_debug -> {
                 val intent = Intent(activity,EZIoTAboutActivity::class.java)
                 startActivity(intent)
             }

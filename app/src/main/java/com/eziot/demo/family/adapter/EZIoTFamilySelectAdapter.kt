@@ -26,7 +26,7 @@ class EZIoTFamilySelectAdapter(private val familyList: List<EZIoTFamilyInfo>) :
         holder.familySelectCb.isChecked = BaseResDataManager.familyInfo != null && BaseResDataManager.familyInfo!!.id == ezIoTFamilyInfo.id
         holder.familySelectLayout.setOnClickListener {
             BaseResDataManager.familyInfo = ezIoTFamilyInfo
-            BaseResDataManager.groupInfo = null
+            BaseResDataManager.roomInfo = null
             notifyDataSetChanged()
         }
     }

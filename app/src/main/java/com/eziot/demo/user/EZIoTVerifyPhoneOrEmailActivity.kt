@@ -186,7 +186,7 @@ class EZIoTVerifyPhoneOrEmailActivity : AppCompatActivity() {
         verifyPhoneOrEmailPage?.visibility = View.VISIBLE
         currentAccount?.text = oldAccount!!
         EZIotUserManager.getSMSCode(oldAccount!!, null,
-            BaseResDataManager.oldBizType!!, object: IResultCallback {
+            BaseResDataManager.oldBizType!!, null, null, object: IResultCallback {
             override fun onSuccess() {
 //                inputSmsVerifyDialog()
             }

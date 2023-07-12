@@ -5,7 +5,7 @@ import android.view.View
 import com.eziot.common.http.callback.IResultCallback
 import com.eziot.demo.base.BaseActivity
 import com.eziot.demo.base.IntentContent
-import com.eziot.family.EZIoTGroupManager
+import com.eziot.family.EZIoTRoomManager
 import com.eziot.iotsdkdemo.R
 import com.eziot.demo.utils.Utils
 import kotlinx.android.synthetic.main.eziot_group_modify_name_activity.*
@@ -28,7 +28,7 @@ class EZIoTGroupModifyNameActivity : BaseActivity() {
     fun onClickModifyGroupName(view : View){
         val currentFamilyInfo = getCurrentFamilyInfo()
         val groupName = groupNameEt.text.toString()
-        EZIoTGroupManager.modifyGroupName(currentFamilyInfo!!.id,groupId,groupName,object : IResultCallback{
+        EZIoTRoomManager.modifyRoomName(currentFamilyInfo!!.id,groupId,groupName,object : IResultCallback{
             override fun onSuccess() {
                 Utils.showToast(this@EZIoTGroupModifyNameActivity,R.string.operateSuccess)
                 setResult(IntentContent.REFRESH_CODE)

@@ -47,18 +47,24 @@ class EZIoTFamilyInfoActivity : BaseActivity() {
         EZIotUserManager.getUserProfile(object : IEZIoTResultCallback<GetUserInfoResp>{
             override fun onSuccess(t: GetUserInfoResp) {
                 ezIotBaseUserInfo = t.userInfo
-                EZIotFamilyManager.getFamilyDetail(familyId,object : IEZIoTResultCallback<EZIoTFamilyDetailInfo>{
-                    override fun onSuccess(t: EZIoTFamilyDetailInfo) {
-                        initView(t)
-                        dismissWaitDialog()
-                    }
+                val familyDetailLocal = EZIotFamilyManager.getFamilyDetailLocal(familyId);
+                if(familyDetailLocal == null){
+                    EZIotFamilyManager.getFamilyDetail(familyId,object : IEZIoTResultCallback<EZIoTFamilyDetailInfo>{
+                        override fun onSuccess(t: EZIoTFamilyDetailInfo) {
+                            initView(t)
+                            dismissWaitDialog()
+                        }
 
-                    override fun onError(errorCode: Int, errorDesc: String?) {
-                        dismissWaitDialog()
-                        Utils.showToast(this@EZIoTFamilyInfoActivity,errorDesc)
-                    }
+                        override fun onError(errorCode: Int, errorDesc: String?) {
+                            dismissWaitDialog()
+                            Utils.showToast(this@EZIoTFamilyInfoActivity,errorDesc)
+                        }
 
-                })
+                    })
+                } else {
+                    initView(familyDetailLocal)
+                    dismissWaitDialog()
+                }
             }
 
             override fun onError(errorCode: Int, errorDesc: String?) {

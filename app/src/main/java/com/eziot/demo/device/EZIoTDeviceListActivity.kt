@@ -10,7 +10,7 @@ import com.eziot.demo.base.BaseResDataManager
 import com.eziot.demo.device.adapter.EZIoTDeviceListAdapter
 import com.eziot.demo.widget.pulltorefresh.*
 import com.eziot.device.EZIoTDeviceManager
-import com.eziot.device.model.DeviceInfo
+import com.eziot.device.model.EZIoTDeviceInfo
 import com.eziot.device.model.GetDeviceListResp
 import com.eziot.iotsdkdemo.R
 import com.eziot.demo.utils.Utils
@@ -24,7 +24,7 @@ class EZIoTDeviceListActivity : BaseActivity() {
 
     private var offset = 0
 
-    private var limit = 5
+    private var limit = 20
 
     private var mNoMoreView: View? = null
 
@@ -33,7 +33,7 @@ class EZIoTDeviceListActivity : BaseActivity() {
         setContentView(R.layout.eziot_device_list_activity)
         addBackBtn(toolbar)
         initData()
-        initPullRecyclerView(ArrayList<DeviceInfo>())
+        initPullRecyclerView(ArrayList())
     }
 
     private fun initData(){
@@ -42,7 +42,7 @@ class EZIoTDeviceListActivity : BaseActivity() {
 
     private fun getDeviceListServer(){
         val familyId = BaseResDataManager.familyInfo!!.id
-        val groupId = BaseResDataManager.groupInfo!!.id
+        val groupId = BaseResDataManager.roomInfo!!.id
         showWaitDialog()
         EZIoTDeviceManager.getDeviceList(familyId,groupId,limit,offset,object : IEZIoTResultCallback<GetDeviceListResp>{
             override fun onSuccess(t: GetDeviceListResp) {
@@ -78,7 +78,7 @@ class EZIoTDeviceListActivity : BaseActivity() {
     }
 
 
-    private fun initPullRecyclerView(deviceList: ArrayList<DeviceInfo>){
+    private fun initPullRecyclerView(deviceList: ArrayList<EZIoTDeviceInfo>){
         mNoMoreView = layoutInflater.inflate(R.layout.no_more_footer, null)
         deviceListPullRv.setLoadingLayoutCreator(object : PullToRefreshBase.LoadingLayoutCreator() {
 

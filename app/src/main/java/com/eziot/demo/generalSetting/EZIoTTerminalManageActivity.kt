@@ -2,11 +2,8 @@ package com.eziot.demo.generalSetting
 
 import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -118,7 +115,7 @@ class EZIoTTerminalManageActivity : BaseActivity() {
 
     private fun sendSmsVerify(){
         EZIotUserManager.getSMSCode(LocalInfo.getInstance().account, LocalInfo.getInstance().countryCode.toInt(),
-            EZIoTUserBizType.TERMINAL_DELETE, object: IResultCallback {
+            EZIoTUserBizType.TERMINAL_DELETE, null,null,  object: IResultCallback {
             override fun onSuccess() {
 //                verifySmsDialog()
                 var intent = Intent(this@EZIoTTerminalManageActivity, EZIoTInputVerifyCodeActivity::class.java)

@@ -18,8 +18,6 @@ class EZIoTDeviceModifyResourceActivity : BaseActivity() {
 
     private lateinit var deviceSerial : String;
 
-    private var localIndex : String = "0";
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.eziot_modify_device_name_activity)
@@ -34,15 +32,17 @@ class EZIoTDeviceModifyResourceActivity : BaseActivity() {
     }
 
     private fun initView(){
-        val deviceControl = EZIoTDeviceManager.createDeviceInstance(getCurrentFamilyInfo()!!.id, deviceSerial)
-        deviceNameEt.setText(deviceControl.getLocalResource(localIndex)!!.name)
+        val deviceControl = EZIoTDeviceManager.getDeviceControl(getCurrentFamilyInfo()!!.id, deviceSerial)
+        val resourceInfo = deviceControl.getLocalResources()[0]
+        deviceNameEt.setText(deviceControl.getLocalResource(resourceInfo.localIndex)!!.name)
     }
 
     fun onClickModifyDeviceName(view : View){
         val deviceName = deviceNameEt.text.toString()
         showWaitDialog()
-        val deviceControl = EZIoTDeviceManager.createDeviceInstance(getCurrentFamilyInfo()!!.id, deviceSerial)
-        val localResource = deviceControl.getLocalResource(localIndex)
+        val deviceControl = EZIoTDeviceManager.getDeviceControl(getCurrentFamilyInfo()!!.id, deviceSerial)
+        val resourceInfo = deviceControl.getLocalResources()[0]
+        val localResource = deviceControl.getLocalResource(resourceInfo.localIndex)
         deviceControl.modifyResourceName(localResource!!.resourceId,deviceName,object : IResultCallback{
             override fun onSuccess() {
                 localResource.name = deviceName

@@ -13,6 +13,8 @@ class IntentContent {
         val IS_DEFAULT_GROUP = "isDefaultGroup"
         val REFRESH_GROUP_BROADCAST = "refreshGroupBroadCast"
         val REFRESH_FAMILY_BROADCAST = "refreshFamilyBroadCast"
+        val BLE_SDK_LOG_BROADCAST = "bleSdkLogBroadCast"
+        val BLE_SDK_LOG_DATA = "bleSdkLogData"
         val REFRESH_CODE = 2
     }
 

@@ -325,5 +325,31 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/bleModule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wifiManager">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:text="@string/ble_device_debug" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/common2_icon_arrowgrey" />
+
+        </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

@@ -38,7 +38,7 @@ class EZIoTDeviceModifyNameActivity : BaseActivity() {
     fun onClickModifyDeviceName(view : View){
         val deviceName = deviceNameEt.text.toString()
         showWaitDialog()
-        val deviceControl = EZIoTDeviceManager.createDeviceInstance(getCurrentFamilyInfo()!!.id, deviceSerial)
+        val deviceControl = EZIoTDeviceManager.getDeviceControl(getCurrentFamilyInfo()!!.id, deviceSerial)
         deviceControl.modifyDeviceName(deviceName,object : IResultCallback{
             override fun onSuccess() {
                 val localDevice = deviceControl.getLocalDevice()

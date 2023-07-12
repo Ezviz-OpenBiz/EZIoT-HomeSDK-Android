@@ -50,7 +50,7 @@ class EZIoTMessageTypeListAdapter(
             val ezIoTMsgInfo = messageInfos[position]
             if (ezIoTMsgInfo.detailLink != null && ezIoTMsgInfo.detailLink.contains("FamilyDetailPage")) {
                 val jsonObject = org.json.JSONObject(ezIoTMsgInfo.detailLink)
-                val familyId = jsonObject.getInt("familyId")
+                val familyId = jsonObject.getLong("familyId")
                 val memberId = jsonObject.getString("memberId")
                 val intent = Intent(context, EZIoTFamilyAcceptInviteActivity::class.java)
                 intent.putExtra(IntentContent.FAMILY_ID, familyId)

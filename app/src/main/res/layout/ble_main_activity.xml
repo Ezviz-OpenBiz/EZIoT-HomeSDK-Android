@@ -3,9 +3,22 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <EditText
+        android:id="@+id/macEt"
+        android:layout_width="match_parent"
+        android:text="A4:C1:38:F9:46:15"
+        android:layout_height="40dp"
+        />
+
+
+<!--    android:text="A8:03:2A:F9:1C:D2"-->
+<!--    android:text="A4:C1:38:3F:14:AB"-->
+<!--    android:text="A8:03:2A:F9:C5:5A"-->
+
+<!--    android:text="88:4A:18:84:44:48"-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         >
 
 
@@ -26,7 +39,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="断开连接"
+            android:text="断开"
             android:onClick="onClickDisconnect"
             />
 
@@ -34,7 +47,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="开始连接设备"
+            android:text="连接"
             android:onClick="onClickConnectBle"
             />
 
@@ -44,22 +57,21 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         >
 
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="获取固件版本"
-            android:onClick="onClickGetVersion"
-            />
+            android:onClick="onClickSetDeviceTime"
+            android:text="下发时间时区" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="获取设备基本信息"
-            android:visibility="gone"
+            android:text="获取设备信息"
+            android:visibility="visible"
             android:onClick="onClickGetDeviceInfo"
             />
 
@@ -67,7 +79,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="开始双向认证"
+            android:text="双向认证"
             android:onClick="onClickStartBleAuth"
             />
 
@@ -76,7 +88,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="40dp"
+        >
 
         <Button
             android:layout_width="wrap_content"
@@ -88,11 +101,389 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="开始升级"
-            android:onClick="onClickStartOta"
+            android:text="获取设备能力"
+            android:onClick="onClickGetDeviceAbility"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取子设备信息"
+            android:onClick="onClickGetSubDeviceInfo"
             />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="40dp"
+        >
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下发功能点"
+            android:onClick="onClickSetFeature"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取功能点"
+            android:onClick="onClickGetFeature"
+            />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下发操作"
+            android:onClick="onClickSetActionFeature"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册上报监听"
+            android:onClick="onClickRegisterFeature"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="40dp"
+        >
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下发配网状态"
+            android:onClick="onClickSetDeviceBindStatus"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始MCU升级"
+            android:onClick="onClickStartMcuOta"
+            />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始固件升级"
+            android:onClick="onClickStartDeviceOta"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="40dp"
+        >
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="传输profile"
+            android:onClick="onClickChangeProfile"
+            />
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="简化双向认证"
+            android:onClick="onClickAuthSimple"
+            />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送wifi给设备"
+            android:onClick="onClickSendWifiPwd"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="40dp"
+        >
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="控制下发属性"
+            android:onClick="onClickControlSetProp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="控制下发操作"
+            android:onClick="onClickControlSetAction"
+            />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="控制获取属性"
+            android:onClick="onClickControlGetProp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="40dp"
+        >
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="蓝牙初始化"
+            android:onClick="onClickBleInit"
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="40dp">
+
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="resourceIdentifier : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/resourceIdentifierEt"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:text="4097"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="localIndex : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/localIndexEt"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:text="22136"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="40dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="domain : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/domainEt"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:text="4660"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="identifier : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/identifierEt"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:text="1"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="wifi名称 : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/wifiNameEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="wifi密码 : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/wifiPwdEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+
+        <CheckBox
+            android:id="@+id/transportEncryptCb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="是否开启传输加密"
+            />
+
+
+        <TextView
+            android:text="   value : "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/valueEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_height="40dp">
+
+        <TextView
+            android:text="类型 : "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioGroup
+            android:id="@+id/typeGroup"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/intTypeBtn"
+                android:layout_width="wrap_content"
+                android:text="Int"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/boolTypeBtn"
+                android:layout_width="wrap_content"
+                android:text="Bool"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/stringTypeBtn"
+                android:layout_width="wrap_content"
+                android:text="String"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/arrayTypeBtn"
+                android:layout_width="wrap_content"
+                android:text="Array"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/objTypeBtn"
+                android:layout_width="wrap_content"
+                android:text="Obj"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"

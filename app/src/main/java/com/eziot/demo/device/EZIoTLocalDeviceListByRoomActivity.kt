@@ -8,7 +8,7 @@ import com.eziot.demo.base.BaseResDataManager
 import com.eziot.demo.device.adapter.EZIoTDeviceListAdapter
 import com.eziot.demo.widget.pulltorefresh.*
 import com.eziot.device.EZIoTDeviceManager
-import com.eziot.device.model.DeviceInfo
+import com.eziot.device.model.EZIoTDeviceInfo
 import com.eziot.iotsdkdemo.R
 import kotlinx.android.synthetic.main.eziot_device_list_activity.*
 import kotlinx.android.synthetic.main.eziot_family_list_activity.toolbar
@@ -25,7 +25,7 @@ class EZIoTLocalDeviceListByRoomActivity : BaseActivity() {
 
     private fun initData(){
         val familyId = BaseResDataManager.familyInfo!!.id
-        val groupId = BaseResDataManager.groupInfo!!.id
+        val groupId = BaseResDataManager.roomInfo!!.id
         val localDeviceList = EZIoTDeviceManager.getLocalDeviceList(familyId,groupId)
         deviceListPullRv.setLoadingLayoutCreator(object : PullToRefreshBase.LoadingLayoutCreator() {
 
@@ -41,7 +41,7 @@ class EZIoTLocalDeviceListByRoomActivity : BaseActivity() {
         deviceListPullRv.setFooterRefreshEnabled(false)
 
         deviceListPullRv.refreshableView.layoutManager = LinearLayoutManager(this)
-        deviceListPullRv.refreshableView.adapter  = EZIoTDeviceListAdapter(localDeviceList as MutableList<DeviceInfo>,this)
+        deviceListPullRv.refreshableView.adapter  = EZIoTDeviceListAdapter(localDeviceList as MutableList<EZIoTDeviceInfo>,this)
     }
 
 }

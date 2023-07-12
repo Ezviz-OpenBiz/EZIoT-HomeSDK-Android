@@ -1,21 +1,16 @@
 package com.eziot.demo.group.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.eziot.demo.base.IntentContent
-import com.eziot.demo.group.EZIoTGroupInfoActivity
-import com.eziot.device.model.DeviceInfo
-import com.eziot.family.model.family.EZIoTFamilyInfo
-import com.eziot.family.model.group.EZIoTGroupInfo
+import com.eziot.device.model.EZIoTDeviceInfo
 import com.eziot.iotsdkdemo.R
 
-class EZIoTGroupDeviceListAdapter(private val deviceList: List<DeviceInfo>, private val context: Context , private val ezIoTGroupDeviceListener: EZIoTGroupDeviceListener, val isHostMember: Boolean) :
+class EZIoTGroupDeviceListAdapter(private val deviceList: List<EZIoTDeviceInfo>, private val context: Context, private val ezIoTGroupDeviceListener: EZIoTGroupDeviceListener, val isHostMember: Boolean) :
     RecyclerView.Adapter<EZIoTGroupDeviceListAdapter.EZIoTFamilyListViewHolder>() {
 
 
@@ -48,7 +43,7 @@ class EZIoTGroupDeviceListAdapter(private val deviceList: List<DeviceInfo>, priv
 
     interface EZIoTGroupDeviceListener {
 
-        fun ezIotGroupRemoveDeviceClick(deviceInfo: DeviceInfo)
+        fun ezIotGroupRemoveDeviceClick(deviceInfo: EZIoTDeviceInfo)
 
     }
 

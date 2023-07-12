@@ -7,12 +7,11 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.eziot.demo.base.BaseResDataManager
-import com.eziot.family.model.family.EZIoTFamilyInfo
-import com.eziot.family.model.group.EZIoTGroupInfo
+import com.eziot.family.model.group.EZIoTRoomInfo
 import com.eziot.iotsdkdemo.R
 
 
-class EZIoTGroupSelectAdapter(private val groupList: List<EZIoTGroupInfo>) :
+class EZIoTGroupSelectAdapter(private val roomList: List<EZIoTRoomInfo>) :
     RecyclerView.Adapter<EZIoTGroupSelectAdapter.EZIoTFamilySelectViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EZIoTFamilySelectViewHolder {
@@ -22,17 +21,17 @@ class EZIoTGroupSelectAdapter(private val groupList: List<EZIoTGroupInfo>) :
     }
 
     override fun onBindViewHolder(holder: EZIoTFamilySelectViewHolder, position: Int) {
-        val ezIotGroupInfo = groupList[position]
+        val ezIotGroupInfo = roomList[position]
         holder.groupName.text = ezIotGroupInfo.name
-        holder.groupSelectCb.isChecked = BaseResDataManager.groupInfo != null && BaseResDataManager.groupInfo!!.id == ezIotGroupInfo.id
+        holder.groupSelectCb.isChecked = BaseResDataManager.roomInfo != null && BaseResDataManager.roomInfo!!.id == ezIotGroupInfo.id
         holder.groupSelectLayout.setOnClickListener {
-            BaseResDataManager.groupInfo = ezIotGroupInfo
+            BaseResDataManager.roomInfo = ezIotGroupInfo
             notifyDataSetChanged()
         }
     }
 
     override fun getItemCount(): Int {
-        return groupList.size
+        return roomList.size
     }
 
     class EZIoTFamilySelectViewHolder(view: View) : RecyclerView.ViewHolder(view) {

@@ -10,7 +10,7 @@ import com.eziot.demo.base.IntentContent
 import com.eziot.demo.device.adapter.EZIoTDeviceUpdateInfoAdapter
 import com.eziot.device.EZIoTDeviceControl
 import com.eziot.device.EZIoTDeviceManager
-import com.eziot.device.model.DeviceInfo
+import com.eziot.device.model.EZIoTDeviceInfo
 import com.eziot.device.model.update.EZIoTUpdateInfo
 import com.eziot.device.model.update.EZIoTUpdateStateInfo
 import com.eziot.device.update.IUpdateProgressCallback
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.eziot_device_update_info_activity.*
 
 class EZIoTDeviceUpdateInfoActivity : BaseActivity() {
 
-    private lateinit var deviceInfo: DeviceInfo
+    private lateinit var deviceInfo: EZIoTDeviceInfo
 
     private lateinit var ezIotDeviceControl: EZIoTDeviceControl
 
@@ -50,7 +50,7 @@ class EZIoTDeviceUpdateInfoActivity : BaseActivity() {
     private fun initData() {
         val deviceSerial = intent.getStringExtra(IntentContent.DEVICE_ID)
         val familyInfo = BaseResDataManager.familyInfo
-        ezIotDeviceControl = EZIoTDeviceManager.createDeviceInstance(
+        ezIotDeviceControl = EZIoTDeviceManager.getDeviceControl(
             familyInfo!!.id,
             deviceSerial!!
         )

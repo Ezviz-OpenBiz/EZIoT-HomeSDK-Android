@@ -3,13 +3,9 @@ package com.eziot.demo.user
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.ezdatasource.simple.AsyncListener
-import com.ezdatasource.simple.From
 import com.eziot.common.data.SystemConfigRepository
 import com.eziot.common.exception.EZIoTException
 import com.eziot.common.http.callback.IResultCallback
@@ -21,10 +17,10 @@ import com.eziot.demo.EZIoTMainTabActivity
 import com.eziot.demo.base.BaseActivity
 import com.eziot.demo.base.BaseResDataManager
 import com.eziot.demo.generalSetting.EZIoTInputVerifyCodeActivity
-import com.eziot.demo.generalSetting.EZIoTTerminalDeleteActivity
 import com.eziot.demo.generalSetting.EZIoTTerminalManageActivity
 import com.eziot.demo.utils.CommonUtils
 import com.eziot.iotsdkdemo.R
+import com.eziot.push.EzIoTPush
 import com.eziot.push.core.IPushOptions
 import com.eziot.user.EZIotUserManager
 import com.eziot.user.http.bean.LoginResp
@@ -32,6 +28,9 @@ import com.eziot.user.http.callback.IEzIoTLoginResultCallback
 import com.eziot.user.model.account.EZIoTUserBizType
 import com.eziot.user.model.account.EZIoTUserLoginParam
 import com.eziot.user.model.account.EZIotLoginResp
+import com.eziot.wificonfig.EZIoTNetConfigurator
+import com.ezdatasource.simple.AsyncListener
+import com.ezdatasource.simple.From
 import kotlinx.android.synthetic.main.eziot_user_login_activity.*
 
 class EZIoTLoginActivity : BaseActivity() {
@@ -41,6 +40,44 @@ class EZIoTLoginActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.eziot_user_login_activity)
         addBackBtn(toolbar)
+        EzIoTPush.init(this, object : IPushOptions {
+
+            override fun getAppType(): String? {
+                return LocalInfo.getInstance().appId
+            }
+
+            override fun getServerAddress(): String? {
+                val systemConfigInfo: SystemConfigInfo? =
+                    SystemConfigRepository.getSystemConfig().local()
+                return systemConfigInfo?.pushDasDomain
+            }
+
+            override fun getServerPort(): Int {
+                val systemConfigInfo = SystemConfigRepository.getSystemConfig().local()
+                return systemConfigInfo?.pushDasPort ?: 8666
+            }
+
+            override fun getSession(): String? {
+                return MD5Util.getMD5String(LocalInfo.getInstance().session)
+            }
+
+            override fun getUserId(): String? {
+                return GlobalVariable.USER_ID.get()
+            }
+
+            override fun getPhoneId(): String? {
+                return LocalInfo.getInstance().hardwareCode;
+            }
+
+            override fun getConfigPath(): String? {
+                return getExternalFilesDir(null).toString() + "/"
+            }
+
+            override fun isEnableLog(): Boolean {
+                return true
+            }
+
+        })
     }
 
     fun onClickLogin(view : View){
@@ -110,7 +147,7 @@ class EZIoTLoginActivity : BaseActivity() {
     private fun sendSmsVerify(){
         BaseResDataManager.ezIotLoginParam?.bizType = EZIoTUserBizType.TERMINAL_BIND
         EZIotUserManager.getSMSCode(LocalInfo.getInstance().account, LocalInfo.getInstance().countryCode.toInt(),
-                EZIoTUserBizType.TERMINAL_BIND, object: IResultCallback {
+                EZIoTUserBizType.TERMINAL_BIND, null, null, object: IResultCallback {
             override fun onSuccess() {
                 var intent = Intent(this@EZIoTLoginActivity, EZIoTInputVerifyCodeActivity::class.java)
                 intent.putExtra("operationType", 0)
@@ -131,6 +168,18 @@ class EZIoTLoginActivity : BaseActivity() {
     }
 
     private fun getSystemConfig() {
+        SystemConfigRepository.getSystemConfig().asyncRemote(object :
+            AsyncListener<SystemConfigInfo, EZIoTException>() {
+
+            override fun onResult(p0: SystemConfigInfo?, p1: From) {
+                EzIoTPush.turnOnPush()
+            }
+
+            override fun onError(error: EZIoTException) {
+
+            }
+
+        })
 
     }
 

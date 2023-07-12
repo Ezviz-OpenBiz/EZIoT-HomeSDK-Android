@@ -17,10 +17,10 @@ import com.eziot.demo.base.IntentContent
 import com.eziot.demo.group.adapter.EZIoTGroupAddDeviceListDialogAdapter
 import com.eziot.demo.group.adapter.EZIoTGroupDeviceListAdapter
 import com.eziot.device.EZIoTDeviceManager
-import com.eziot.device.model.DeviceInfo
-import com.eziot.family.EZIoTGroupManager
+import com.eziot.device.model.EZIoTDeviceInfo
+import com.eziot.family.EZIoTRoomManager
 import com.eziot.family.model.group.EZIoTGroupDeviceInfo
-import com.eziot.family.model.group.EZIoTGroupInfo
+import com.eziot.family.model.group.EZIoTRoomInfo
 import com.eziot.iotsdkdemo.R
 import com.eziot.demo.utils.Utils
 import kotlinx.android.synthetic.main.eziot_family_list_activity.*
@@ -36,13 +36,13 @@ class EZIoTGroupInfoActivity : BaseActivity() {
 
     private var defaultGroup : Boolean = false
 
-    private  var ezIoTGroupInfo: EZIoTGroupInfo? = null
+    private  var ezIoTRoomInfo: EZIoTRoomInfo? = null
 
-    private var targetEzIoTGroupInfo: EZIoTGroupInfo? = null
+    private var targetEzIoTRoomInfo: EZIoTRoomInfo? = null
 
-    private var otherGroupDeviceList  = ArrayList<DeviceInfo>()
+    private var otherGroupDeviceList  = ArrayList<EZIoTDeviceInfo>()
 
-    private var thisGroupDeviceList  = ArrayList<DeviceInfo>()
+    private var thisGroupDeviceList  = ArrayList<EZIoTDeviceInfo>()
 
     private lateinit var adapter : EZIoTGroupDeviceListAdapter
 
@@ -60,16 +60,16 @@ class EZIoTGroupInfoActivity : BaseActivity() {
         val familyInfo = BaseResDataManager.familyInfo
         val id = familyInfo!!.id
         showWaitDialog()
-        EZIoTGroupManager.getGroupList(id,object : IEZIoTResultCallback<List<EZIoTGroupInfo>>{
-            override fun onSuccess(t: List<EZIoTGroupInfo>) {
+        EZIoTRoomManager.getRoomList(id,object : IEZIoTResultCallback<List<EZIoTRoomInfo>>{
+            override fun onSuccess(t: List<EZIoTRoomInfo>) {
                 dismissWaitDialog()
                 t.forEach {
                     if(it.id == groupId){
-                        ezIoTGroupInfo = it
+                        ezIoTRoomInfo = it
                     }
                     if(it.isDefaultGroup){
                         defaultGroupId = it.id
-                        targetEzIoTGroupInfo = it
+                        targetEzIoTRoomInfo = it
                         if(groupId == it.id){
                             defaultGroup = true
                         }
@@ -89,8 +89,8 @@ class EZIoTGroupInfoActivity : BaseActivity() {
     private fun initView(){
         thisGroupDeviceList.clear()
         otherGroupDeviceList.clear()
-        familyNameTv.text = ezIoTGroupInfo!!.name
-        val localDeviceList = EZIoTDeviceManager.getLocalDeviceList(getCurrentFamilyInfo()!!.id)
+        familyNameTv.text = ezIoTRoomInfo!!.name
+        val localDeviceList = EZIoTDeviceManager.getLocalDeviceList(getCurrentFamilyInfo()!!.id,getCurrentGroupInfo()!!.id)
         localDeviceList.forEach {
             if(it.resourceInfos.size > 0 && it.resourceInfos[0].groupId == groupId){
                 thisGroupDeviceList.add(it)
@@ -100,7 +100,7 @@ class EZIoTGroupInfoActivity : BaseActivity() {
         }
         deviceListRv.layoutManager = LinearLayoutManager(this)
         adapter =  EZIoTGroupDeviceListAdapter(thisGroupDeviceList,this, object : EZIoTGroupDeviceListAdapter.EZIoTGroupDeviceListener{
-            override fun ezIotGroupRemoveDeviceClick(deviceInfo: DeviceInfo) {
+            override fun ezIotGroupRemoveDeviceClick(deviceInfo: EZIoTDeviceInfo) {
                 removeDeviceFromGroup(deviceInfo)
                 isNeedRefresh = true
             }
@@ -118,13 +118,13 @@ class EZIoTGroupInfoActivity : BaseActivity() {
 
 
     fun onClickDeleteGroup(view : View){
-        if(targetEzIoTGroupInfo == null){
+        if(targetEzIoTRoomInfo == null){
             Utils.showToast(this@EZIoTGroupInfoActivity,R.string.finalRoomNotDelete)
             return
         }
         val familyInfo = BaseResDataManager.familyInfo
         showWaitDialog()
-        EZIoTGroupManager.deleteGroup(familyInfo!!.id,groupId,targetEzIoTGroupInfo!!.id,object : IResultCallback{
+        EZIoTRoomManager.deleteRoom(familyInfo!!.id,groupId,targetEzIoTRoomInfo!!.id,object : IResultCallback{
             override fun onSuccess() {
                 Utils.showToast(this@EZIoTGroupInfoActivity,R.string.operateSuccess)
                 isNeedRefresh = true
@@ -153,7 +153,7 @@ class EZIoTGroupInfoActivity : BaseActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         var enumDialog : Dialog? = null
         recyclerView.adapter = EZIoTGroupAddDeviceListDialogAdapter(otherGroupDeviceList,this,object : EZIoTGroupAddDeviceListDialogAdapter.EZIoTGroupDeviceListener{
-            override fun ezIotGroupDeviceClick(deviceInfo: DeviceInfo) {
+            override fun ezIotGroupDeviceClick(deviceInfo: EZIoTDeviceInfo) {
                 enumDialog!!.dismiss()
                 addDeviceFromGroup(deviceInfo)
             }
@@ -173,7 +173,7 @@ class EZIoTGroupInfoActivity : BaseActivity() {
         }
     }
 
-    private fun removeDeviceFromGroup(deviceInfo: DeviceInfo){
+    private fun removeDeviceFromGroup(deviceInfo: EZIoTDeviceInfo){
         val ezIotGroupDeviceInfo = EZIoTGroupDeviceInfo()
         ezIotGroupDeviceInfo.groupId = defaultGroupId
         ezIotGroupDeviceInfo.familyId = getCurrentFamilyInfo()!!.id
@@ -181,7 +181,7 @@ class EZIoTGroupInfoActivity : BaseActivity() {
         val ezIotGroupDeviceInfos = ArrayList<EZIoTGroupDeviceInfo>()
         ezIotGroupDeviceInfos.add(ezIotGroupDeviceInfo)
         showWaitDialog()
-        EZIoTGroupManager.groupDevicesOperation(groupId,ezIotGroupDeviceInfos,object : IResultCallback{
+        EZIoTRoomManager.roomDevicesOperation(groupId,ezIotGroupDeviceInfos,object : IResultCallback{
 
             override fun onSuccess() {
                 dismissWaitDialog()
@@ -204,7 +204,7 @@ class EZIoTGroupInfoActivity : BaseActivity() {
         })
     }
 
-    private fun addDeviceFromGroup(deviceInfo: DeviceInfo){
+    private fun addDeviceFromGroup(deviceInfo: EZIoTDeviceInfo){
         val ezIotGroupDeviceInfo = EZIoTGroupDeviceInfo()
         ezIotGroupDeviceInfo.groupId = groupId
         ezIotGroupDeviceInfo.familyId = getCurrentFamilyInfo()!!.id
@@ -212,7 +212,7 @@ class EZIoTGroupInfoActivity : BaseActivity() {
         val ezIotGroupDeviceInfos = ArrayList<EZIoTGroupDeviceInfo>()
         ezIotGroupDeviceInfos.add(ezIotGroupDeviceInfo)
         showWaitDialog()
-        EZIoTGroupManager.groupDevicesOperation(groupId,ezIotGroupDeviceInfos,object : IResultCallback{
+        EZIoTRoomManager.roomDevicesOperation(groupId,ezIotGroupDeviceInfos,object : IResultCallback{
 
             override fun onSuccess() {
                 dismissWaitDialog()
@@ -243,16 +243,16 @@ class EZIoTGroupInfoActivity : BaseActivity() {
             val familyInfo = BaseResDataManager.familyInfo
             val id = familyInfo!!.id
             showWaitDialog()
-            EZIoTGroupManager.getGroupList(id,object : IEZIoTResultCallback<List<EZIoTGroupInfo>>{
-                override fun onSuccess(t: List<EZIoTGroupInfo>) {
+            EZIoTRoomManager.getRoomList(id,object : IEZIoTResultCallback<List<EZIoTRoomInfo>>{
+                override fun onSuccess(t: List<EZIoTRoomInfo>) {
                     dismissWaitDialog()
                     t.forEach {
                         if(it.id == groupId){
-                            ezIoTGroupInfo = it
+                            ezIoTRoomInfo = it
                         }
                         if(it.isDefaultGroup){
                             defaultGroupId = it.id
-                            targetEzIoTGroupInfo = it
+                            targetEzIoTRoomInfo = it
                             if(groupId == it.id){
                                 defaultGroup = true
                             }

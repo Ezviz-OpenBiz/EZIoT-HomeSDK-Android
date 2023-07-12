@@ -1,7 +1,7 @@
 package com.eziot.demo.base
 
 import com.eziot.family.model.family.EZIoTFamilyInfo
-import com.eziot.family.model.group.EZIoTGroupInfo
+import com.eziot.family.model.group.EZIoTRoomInfo
 import com.eziot.user.model.account.EZIoTUserBizType
 import com.eziot.user.model.account.EZIoTUserContactModifyParam
 import com.eziot.user.model.account.EZIoTUserLoginParam
@@ -12,7 +12,7 @@ object BaseResDataManager {
 
     var familyInfo : EZIoTFamilyInfo? = null
 
-    var groupInfo : EZIoTGroupInfo? = null
+    var roomInfo : EZIoTRoomInfo? = null
 
     var configTokenInfo : EZIoTConfigTokenInfo? = null
 

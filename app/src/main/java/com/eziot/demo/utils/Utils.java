@@ -48,6 +48,7 @@ import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -705,6 +706,11 @@ public class Utils {
         if (mWaitDlg != null && mWaitDlg.isShowing()) {
             mWaitDlg.dismiss();
         }
+    }
+
+    public static String formatTime(Long time){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",Locale.getDefault());
+        return dateFormat.format(new Date(time));
     }
 
 

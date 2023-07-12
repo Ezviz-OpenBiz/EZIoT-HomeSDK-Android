@@ -137,7 +137,7 @@ class EZIoTAccountSecurityActivity : BaseActivity(), View.OnClickListener {
 
     private fun sendSmsVerify(){
         EZIotUserManager.getSMSCode(LocalInfo.getInstance().account, LocalInfo.getInstance().countryCode.toInt(),
-                EZIoTUserBizType.TERMINAL_BIND, object: IResultCallback{
+                EZIoTUserBizType.TERMINAL_BIND, null, null, object: IResultCallback{
             override fun onSuccess() {
                 verifySmsDialog()
             }

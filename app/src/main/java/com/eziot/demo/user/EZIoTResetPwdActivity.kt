@@ -33,7 +33,7 @@ class EZIoTResetPwdActivity : BaseActivity() {
             return
         }
         showWaitDialog()
-        EZIotUserManager.getSMSCode(userName,countryCode.toInt(), EZIoTUserBizType.RETRIEVE_PASSWORD, object : IResultCallback{
+        EZIotUserManager.getSMSCode(userName,countryCode.toInt(), EZIoTUserBizType.RETRIEVE_PASSWORD, null, null,  object : IResultCallback{
             override fun onSuccess() {
                 dismissWaitDialog()
                 CommonUtils.showToast(this@EZIoTResetPwdActivity,resources.getString(R.string.getVerCodeSuccess))
