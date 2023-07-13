@@ -23,8 +23,8 @@ public class EZIoTGlobalVariable<T> {
     /**
      * 定义区
      */
-//    public final static EZIoTGlobalVariable<String> API_DOMAIN = new EZIoTGlobalVariable<String>(1, true, String.class, "https://test15api.eziot.com");
-    public final static EZIoTGlobalVariable<String> API_DOMAIN = new EZIoTGlobalVariable<String>(1, true, String.class, "https://apicn.eziot.com");
+//    public final static EZIoTGlobalVariable<String> API_DOMAIN = new EZIoTGlobalVariable<String>(1, true, String.class, "");
+    public final static EZIoTGlobalVariable<String> API_DOMAIN = new EZIoTGlobalVariable<String>(1, true, String.class, "");
     public final static EZIoTGlobalVariable<String> APP_ID = new EZIoTGlobalVariable<String>(2, true, String.class, "");
     public final static EZIoTGlobalVariable<String> LOCAL_CATCH = new EZIoTGlobalVariable<String>(3, true, String.class, "");
     /**

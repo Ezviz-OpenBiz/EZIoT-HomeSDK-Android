@@ -49,12 +49,12 @@ class EZIoTDebugActivity : BaseActivity() {
     }
 
     fun copyTest15ApiClick(view : View){
-        copyContentToClipboard("https://test15.ys7.com")
+        copyContentToClipboard("")
         Utils.showToast(this,"复制成功")
     }
 
     fun copyLineApiClick(view : View){
-        copyContentToClipboard("https://api.eziot.com")
+        copyContentToClipboard("")
         Utils.showToast(this,"复制成功")
     }
 

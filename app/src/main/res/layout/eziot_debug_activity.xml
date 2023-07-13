@@ -106,7 +106,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="测试平台地址：test15.ys7.com"
+            android:text="测试平台地址："
             android:layout_height="wrap_content"/>
 
         <Button
@@ -127,7 +127,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="线上平台地址：api.eziot.com"
+            android:text="线上平台地址："
             android:layout_height="wrap_content"/>
 
         <Button
